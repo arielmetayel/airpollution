@@ -82,7 +82,8 @@
 				        }
 				        else {
 				        	var str = createPopUpStr(results.data[i]);	
-					        var marker = new Marker(lng, lat)
+				        	var latlng = L.latLng(lat,lng);
+					        var marker = new Marker(latlng);
 					        /*if (results.data[i][6]!==" " || results.data[i][7]!==" ") {
 					        	marker.data.icon = myWheelChairIcon;
 					        }*/
