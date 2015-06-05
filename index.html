@@ -53,7 +53,7 @@
 		map.locate({setView: true, maxZoom: 16});
 		map.setView([31.782,35.21933], 16);
 		
-		/*
+		
 
 		Papa.parse("data/pollutants.csv", {
 			header: false,
@@ -71,21 +71,21 @@
 			          
 			        //}
 			        //console.log("COORDS: " + line[12] + "," + line[11]);
-			        if (line[12]===undefined || line[11]=== undefined) {
-			        	//console.log("COORDS: are undefined!");	
+			        if (line[10]===undefined || line[11]=== undefined) {
+			        	console.log("COORDS: are undefined!");	
 			        }
 			        else {
-				        var lat = parseFloat(line[12]);
+				        var lat = parseFloat(line[10]);
 				        var lng = parseFloat(line[11]);
 				        if (isNaN(lat) || isNaN(lng)) {
-				        	//console.log("Address: "+ + " could not be parsed!");
+				        	console.log("Address: "+ + " could not be parsed!");
 				        }
 				        else {
 				        	var str = createPopUpStr(results.data[i]);	
 					        var marker = new PruneCluster.Marker(lng, lat)
-					        if (results.data[i][6]!==" " || results.data[i][7]!==" ") {
+					        /*if (results.data[i][6]!==" " || results.data[i][7]!==" ") {
 					        	marker.data.icon = myWheelChairIcon;
-					        }
+					        }*/
 					        marker.data.popup= str;
 					        //marker.setPopupContent(str)
 					        pruneCluster.RegisterMarker(marker);
@@ -99,17 +99,14 @@
 		function createPopUpStr(arr) {
 			console.log(arr);
 			str = "<div class=\"marker\">"
-			str += "<b>קלפי מספר:" + arr[4] + "</b><br/>";
-			str += "בנפה: " + arr[2] + "<br/>";
-			str += "כתובת: " + arr[0] + "<br/>";
-			str += "מיקום הקלפי: " + arr[5] + "<br/>";
-			if (arr[6]=="כ") {
-				str += "<b>קלפי נגישה ";
-				if (arr[7]=="כ") {
-					str+="מיוחדת";
-				} 
-				str +="</b><br/>";
-			}
+			str += "<b>עיר:" + arr[0] + "</b><br/>";
+			str += "קוד תחנה: " + arr[1] + "<br/>";
+			str += "תעשיה: " + arr[2] + "<br/>";
+			str += "ייצור חשמל: " + arr[3] + "<br/>";
+			str += "תחבורה: " + arr[4] + "<br/>";
+			str += "עלות תעשיה: " + arr[6] + "<br/>";
+			str += "עלות ייצור חשמל: " + arr[7] + "<br/>";
+			str += "עלות תחבורה: " + arr[8] + "<br/>";
 			
 			/*str += "<a href=\"tel:"+arr[2]+"\">"+arr[2]+"</a><br/>";
 			if (arr[3]!="") {
