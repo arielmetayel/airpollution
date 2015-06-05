@@ -12,6 +12,7 @@
 }
 .ac-container label{
 	direction: rtl;
+	float:right;
 	font-family: 'alef', Arial, sans-serif;
 	padding: 5px 20px;
 	position: relative;
@@ -100,6 +101,7 @@
 	direction: rtl;
 	font-family: 'alef', Arial, sans-serif;
 	font-size: 13px;
+	float:right;
 	
 }
 
