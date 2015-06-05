@@ -6,13 +6,13 @@ body {
 }
 
 #header-wrap {
-    background: #ffffff;
+    background: #000000;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1;
     text-align: center;
-    color: #000000;
+    color: #ffffff;
 }
 
 html, body, #map {

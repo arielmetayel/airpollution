@@ -19,6 +19,7 @@
 }
 
 .ac-container{
+	direction: rtl;
 	width: auto;
 	margin: 10px auto 10px auto;
 	text-align: left;
@@ -104,6 +105,7 @@
 }
 
 .ac-container input.menu:checked ~ article.ac-large{
+	direction: rtl;
 	height: auto;
 	max-height : 100px;
 	padding-top: 5px;
@@ -137,6 +139,7 @@
 }
 
 .leaflet-control-layers:hover {
+	direction: rtl;
 	box-shadow: 0 1px 5px rgba(0,0,0,0.4);
 	background: #e0e3ec url(images/bgnoise_lg.jpg) repeat top left;
 	border-radius: 5px;
