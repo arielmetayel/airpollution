@@ -181,6 +181,7 @@
 			var marker = L.marker([lng,lat]);
 			var str = createPopUpStrByType(arr,type);
 			setIconByTypeRange(marker,type,arr,iconDictionary);
+			marker.bindPopup(str);
 
 			return marker;
 		}
