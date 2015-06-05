@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Air Pollution Data | מפת זיהום אויר</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="dist/leaflet.css" />
+	<script src="dist/papaparse.js"></script>
+
+	<!-- <script src="dist/leaflet.js"></script>
+
+	<link rel="stylesheet" href="css/style.css" />
+
+	
+	 <script src="dist/PruneCluster.js"></script>
+	 -->
+	<!--
+	<script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+	<script src="http://jquery-csv.googlecode.com/git/src/jquery.csv.js"></script>
+	-->
+
+</head>
+<body>
+	<div id="header-wrap">
+    	<h3>מפת הקלפיות</h3>
+    	<p>אזהרה: מיקום הקלפיות משוער, וחלקו חסר. אנא השתמשו באתר <a href="http://bechirot.gov.il/">ועדת הבחירות המרכזית</a> על מנת לקבל מידע מוסמך.</p>
+
+	</div>
+	<div id="map"></div>
+
+	<script>
+		var map = L.map('map');
+		//var pruneCluster = new PruneClusterForLeaflet();
+		L.tileLayer('https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png', {
+			maxZoom: 18,
+			attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+				'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+				'Imagery © <a href="http://mapbox.com">Mapbox</a>',
+			id: 'examples.map-i875mjb7'
+		}).addTo(map);
+		function onLocationFound(e) {
+			var radius = e.accuracy / 2;
+			L.marker(e.latlng).addTo(map)
+				.bindPopup("אתם נמצאים " + radius + " מטרים מכאן").openPopup();
+			L.circle(e.latlng, radius).addTo(map);
+		}
+		function onLocationError(e) {
+			alert(e.message);
+		}
+		map.on('locationfound', onLocationFound);
+		map.on('locationerror', onLocationError);
+		map.locate({setView: true, maxZoom: 16});
+		map.setView([31.782,35.21933], 16);
+		
+		/*
+
+		Papa.parse("data/pollutants.csv", {
+			header: false,
+			download: true,
+			complete: function(results) {
+				//console.log(results);
+				var len = results.data.length;
+				for (var i=0; i<len; i++){
+					//console.log(results.data[i]);
+					line = results.data[i];
+					//console.log(line);
+					//popupString = "";
+					//for(var item in line) {
+			        //	popupString+=item + ' \n';
+			          
+			        //}
+			        //console.log("COORDS: " + line[12] + "," + line[11]);
+			        if (line[12]===undefined || line[11]=== undefined) {
+			        	//console.log("COORDS: are undefined!");	
+			        }
+			        else {
+				        var lat = parseFloat(line[12]);
+				        var lng = parseFloat(line[11]);
+				        if (isNaN(lat) || isNaN(lng)) {
+				        	//console.log("Address: "+ + " could not be parsed!");
+				        }
+				        else {
+				        	var str = createPopUpStr(results.data[i]);	
+					        var marker = new PruneCluster.Marker(lng, lat)
+					        if (results.data[i][6]!==" " || results.data[i][7]!==" ") {
+					        	marker.data.icon = myWheelChairIcon;
+					        }
+					        marker.data.popup= str;
+					        //marker.setPopupContent(str)
+					        pruneCluster.RegisterMarker(marker);
+					    }
+					}
+				}
+				map.addLayer(pruneCluster);
+			}
+		});
+		*/
+		function createPopUpStr(arr) {
+			console.log(arr);
+			str = "<div class=\"marker\">"
+			str += "<b>קלפי מספר:" + arr[4] + "</b><br/>";
+			str += "בנפה: " + arr[2] + "<br/>";
+			str += "כתובת: " + arr[0] + "<br/>";
+			str += "מיקום הקלפי: " + arr[5] + "<br/>";
+			if (arr[6]=="כ") {
+				str += "<b>קלפי נגישה ";
+				if (arr[7]=="כ") {
+					str+="מיוחדת";
+				} 
+				str +="</b><br/>";
+			}
+			
+			/*str += "<a href=\"tel:"+arr[2]+"\">"+arr[2]+"</a><br/>";
+			if (arr[3]!="") {
+				str += "<a href=\"http://"+arr[3]+"\" target=\"_blank\">"+arr[3]+"</a><br/>";
+			}
+			str += arr[7] + "<br/>" + arr[8] + "<br/>";*/
+			str += "</div>";
+			return str;	
+		};
+	</script>
+</body>
+</html>
