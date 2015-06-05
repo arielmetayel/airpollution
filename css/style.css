@@ -6,12 +6,13 @@ body {
 }
 
 #header-wrap {
-    background: #00B3F6;
+    background: #ffffff;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1;
     text-align: center;
+    color: #000000;
 }
 
 html, body, #map {
@@ -25,8 +26,4 @@ html, body, #map {
 	direction: rtl;
 	text-align: right;
     font-family: Alef;
-}
-
-.leaflet-zoom-animated {
-    direction: rtl;
 }
