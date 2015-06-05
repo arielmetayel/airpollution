@@ -89,13 +89,14 @@
 					        	marker.data.icon = myWheelChairIcon;
 					        }*/
 					        
-					        marker.bindPopup(str);
+					        marker.bindPopup(str).addTo(map);
+
 					        //marker.setPopupContent(str)
-					        pruneCluster.addLayer(marker);
+					        //pruneCluster.addLayer(marker);
 					    }
 					}
 				}
-				map.addLayer(pruneCluster);
+				//map.addLayer(pruneCluster);
 			}
 		});
 		
