@@ -16,7 +16,7 @@ body {
 html, body, #map {
 	direction: rtl;
     height: 100%;
-    margin-top: 50px;
+    
 }
 
 .leaflet-popup-content {
