@@ -83,12 +83,13 @@
 				        else {
 				        	var str = createPopUpStr(results.data[i]);	
 				        	var latlng = L.latLng(lat,lng);
+				        	console.log("LAT: "+lat+" LNG:"+lng);
 					        var marker = L.Marker(latlng);
 					        /*if (results.data[i][6]!==" " || results.data[i][7]!==" ") {
 					        	marker.data.icon = myWheelChairIcon;
 					        }*/
 					        
-					        //marker.setContent(str);
+					        marker.setContent(str);
 					        //marker.setPopupContent(str)
 					        pruneCluster.addLayer(marker);
 					    }
