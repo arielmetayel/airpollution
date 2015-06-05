@@ -11,9 +11,10 @@
 	<script src="dist/leaflet.js"></script>
 
 	<link rel="stylesheet" href="css/style.css" />
-
+	<link rel="stylesheet" href="css/styledLayerControl.css" />
 	
-	 <script src="dist/PruneCluster.js"></script>
+	 <!--<script src="dist/PruneCluster.js"></script>-->
+	 <script src="dist/styledLayerControl.js"></script>
 	 
 	<!--
 	<script src="http://code.jquery.com/jquery-1.8.2.js"></script>
@@ -31,6 +32,70 @@
 
 	<script>
 		var map = L.map('map');
+
+		var industryLayer = new L.LayerGroup();
+		var electricityLayer = new L.LayerGroup();
+		var transportationLayer = new L.LayerGroup();
+
+		industryLayer.StyledLayerControl = {
+        	removable : true
+    	};
+    	electricityLayer.StyledLayerControl = {
+        	removable : true
+    	};
+
+    	transportationLayer.StyledLayerControl = {
+        	removable : true
+    	};
+
+		//create Icons
+
+
+		var iconIndustry32 = newL.icon({iconUrl: 'dist/images/industry32.png'});
+		var iconIndustry64 = newL.icon({iconUrl: 'dist/images/industry64.png'});
+		var iconIndustry128 = newL.icon({iconUrl: 'dist/images/industry128.png'});
+
+		var iconElectricity32 = newL.icon({iconUrl: 'dist/images/electricity32.png'});
+		var iconElectricity64 = newL.icon({iconUrl: 'dist/images/electricity64.png'});
+		var iconElectricity128 = newL.icon({iconUrl: 'dist/images/electricity128.png'});
+
+		var iconTransportation32 = newL.icon({iconUrl: 'dist/images/transport32.png'});
+		var iconTransportation64 = newL.icon({iconUrl: 'dist/images/transport64.png'});
+		var iconTransportation128 = newL.icon({iconUrl: 'dist/images/transport128.png'});
+
+		var iconDictionary = {}; //TODO remove redundant instatiation + assignments
+
+		iconDictionary["iconIndustry32"]=iconIndustry32;
+		iconDictionary["iconIndustry64"]=iconIndustry64;
+		iconDictionary["iconIndustry128"]=iconIndustry128;
+
+		iconDictionary["iconElectricity32"]=iconElectricity32;
+		iconDictionary["iconElectricity64"]=iconElectricity64;
+		iconDictionary["iconElectricity128"]=iconElectricity128;
+
+		iconDictionary["iconTransportation32"]=iconTransportation32;
+		iconDictionary["iconTransportation64"]=iconTransportation64;
+		iconDictionary["iconTransportation128"]=iconTransportation128;
+
+		var overlays = [
+                     {
+                        groupName : "סוגי מזהמים",
+                        expanded  : true,
+                        layers    : { 
+                            "תעשיה" : industryLayer,
+                            "ייצור חשמל"     : electricityLayer,
+                            "תחבורה" 	: transportationLayer
+                        }   
+                     }
+       	];
+
+       	var styledLayerOptions = {
+	        container_width     : "300px",
+	        container_maxHeight : "350px", 
+	        group_maxHeight     : "80px",
+	        exclusive           : true
+    	};
+
 		//var pruneCluster = new L.layerGroup([]);
 		L.tileLayer('https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png', {
 			maxZoom: 18,
@@ -81,26 +146,122 @@
 				        	console.log("Address: "+ + " could not be parsed!");
 				        }
 				        else {
-				        	var str = createPopUpStr(results.data[i]);	
-				        	//var latlng = L.latLng(lat,lng);
-				        	console.log("LAT: "+lat+" LNG:"+lng);
-					        var marker = L.marker([lng,lat]);
-					        /*if (results.data[i][6]!==" " || results.data[i][7]!==" ") {
-					        	marker.data.icon = myWheelChairIcon;
-					        }*/
+
+				        	//console.log("LAT: "+lat+" LNG:"+lng);
+				        	industryMarker = createMarkerFromPollutantType(results.data[i],"industry",lng,lat,iconDictionary);
+				        	transportationMarker = createMarkerFromPollutantType(results.data[i],"transportation",lng,lat,iconDictionary);
+				        	electricityMarker = createMarkerFromPollutantType(results.data[i],"electricity",lng,lat,iconDictionary);
+				        	//var str = createPopUpStr(results.data[i]);	
+				        	
+				        	industryLayer.addLayer(industryMarker);
+
+							electricityLayer.addLayer(electricityMarker);
+
+							transportationLayer.addLayer(transportationMarker);
+
+				        	
+					        //var marker = L.marker([lng,lat]);
 					        
-					        marker.bindPopup(str);
-					        console.log(marker);
-					        map.addLayer(marker);
+					        //marker.bindPopup(str);
+					        //console.log(marker);
+					        //map.addLayer(marker);
 					        //marker.setPopupContent(str)
 					        //pruneCluster.addLayer(marker);
 					    }
 					}
 				}
+
+				var control = L.Control.styledLayerControl([],overlays, options);
+				map.addControl(control);
+
 				//map.addLayer(pruneCluster);
 			}
 		});
 		
+		function createMarkerFromPollutantType(arr,type,lng,lat,iconDictionary) {
+			var marker = L.marker([lng,lat]);
+			var str = createPopUpStrByType(arr,type);
+			setIconByTypeRange(marker,type,arr,iconDictionary);
+
+			return marker;
+		}
+
+		function createPopUpStrByType(arr,type) {
+			var pollutantIndex = 0;
+			var costIndex =0;
+			var title = "";
+
+			//Set the above indexes according to  type of pollutants:
+			if (type=="industry") {
+				pollutantIndex=2;
+				costIndex =6;
+				title = "תעשיה";
+
+			}
+			else if (type=="transportation") {
+				pollutantIndex=4;
+				costIndex =8;
+				title = "תחבורה";
+			}
+			else { //electricity
+				pollutantIndex=3;
+				costIndex =7;	
+				title = "ייצור חשמל";	
+			}
+
+
+			console.log(arr);
+			str = "<div class=\"marker\">"
+			str += "<b>עיר:" + arr[0] + "</b><br/>";
+			str += "קוד תחנה: " + arr[1] + "<br/>";
+			str += "סוג המזהם: " +  title + "<br/>";
+			str += "טונות זיהום/שנה: " + arr[pollutantIndex] + "<br/>";
+			str += "עלויות חיצוניות מזיהום האויר: " + arr[costIndex] + "<br/>";
+			
+			/*str += "<a href=\"tel:"+arr[2]+"\">"+arr[2]+"</a><br/>";
+			if (arr[3]!="") {
+				str += "<a href=\"http://"+arr[3]+"\" target=\"_blank\">"+arr[3]+"</a><br/>";
+			}
+			str += arr[7] + "<br/>" + arr[8] + "<br/>";*/
+			str += "</div>";
+			return str;	
+		};
+
+		function setIconByTypeRange(marker,type,arr,iconDictionary) {
+			var checkIndex =0 
+			var dictionary = {};
+			if (type=="industry") {
+				checkIndex = 2;
+				dictionary["32"] = iconDictionary["iconIndustry32"];
+				dictionary["64"] = iconDictionary["iconIndustry64"];
+				dictionary["128"] = iconDictionary["iconIndustry128"];
+			}
+			else if (type=="transportation") {
+				checkIndex = 4;
+				dictionary["32"] = iconDictionary["iconTransportation32"];
+				dictionary["64"] = iconDictionary["iconTransportation64"];
+				dictionary["128"] = iconDictionary["iconTransportation128"];
+			}
+			else { //eletricity
+				checkIndex = 3
+				dictionary["32"] = iconDictionary["iconElectricity32"];
+				dictionary["64"] = iconDictionary["iconElectricity64"];
+				dictionary["128"] = iconDictionary["iconElectricity128"];
+			}
+
+			//now, match the right icon according to the pollutant level
+			if (arr[checkIndex]<100) {
+				marker.setIcon(dictionary["32"]);
+			}
+			else if (arr[checkIndex]<200) {
+				marker.setIcon(dictionary["64"]);
+			}
+			else {
+				marker.setIcon(dictionary["128"]);
+			}
+
+		}
+
 		function createPopUpStr(arr) {
 			console.log(arr);
 			str = "<div class=\"marker\">"
