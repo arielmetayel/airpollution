@@ -1,22 +1,6 @@
-@font-face {
-    font-family: BebasNeueRegular;
-    src: url(fonts/BebasNeue-webfont.woff);
-}
+@import url(http://fonts.googleapis.com/css?family=Alef);
 
-@font-face {
-    font-family: Alegreya-Regular;
-    src: url(fonts/Alegreya-Regular.ttf);
-}
 
-@font-face {
-    font-family: Ubuntu-Medium;
-    src: url(fonts/Ubuntu-Medium.ttf);
-}
-
-@font-face {
-    font-family: Ubuntu-Regular;
-    src: url(fonts/Ubuntu-Regular.ttf);
-}
 
 .ac-container{	
 	width: auto;
@@ -28,7 +12,7 @@
 }
 .ac-container label{
 	direction: rtl;
-	font-family: 'BebasNeueRegular', 'Arial Narrow', Arial, sans-serif;
+	font-family: 'alef', Arial, sans-serif;
 	padding: 5px 20px;
 	position: relative;
 	z-index: 20;
@@ -114,14 +98,14 @@
 
 .menu-item-radio{
 	direction: rtl;
-	font-family: 'Ubuntu-Regular', Arial, sans-serif;
+	font-family: 'alef', Arial, sans-serif;
 	font-size: 13px;
 	
 }
 
 .menu-item-checkbox{
 	direction: rtl;
-	font-family: 'Ubuntu-Regular', Arial, sans-serif;
+	font-family: 'alef', Arial, sans-serif;
 	font-size: 13px;
 	
 }
