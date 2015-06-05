@@ -18,8 +18,7 @@
     src: url(fonts/Ubuntu-Regular.ttf);
 }
 
-.ac-container{
-	direction: rtl;
+.ac-container{	
 	width: auto;
 	margin: 10px auto 10px auto;
 	text-align: left;
@@ -28,6 +27,7 @@
 	height: auto;
 }
 .ac-container label{
+	direction: rtl;
 	font-family: 'BebasNeueRegular', 'Arial Narrow', Arial, sans-serif;
 	padding: 5px 20px;
 	position: relative;
@@ -113,12 +113,14 @@
 }
 
 .menu-item-radio{
+	direction: rtl;
 	font-family: 'Ubuntu-Regular', Arial, sans-serif;
 	font-size: 13px;
 	
 }
 
 .menu-item-checkbox{
+	direction: rtl;
 	font-family: 'Ubuntu-Regular', Arial, sans-serif;
 	font-size: 13px;
 	
