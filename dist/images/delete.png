@@ -9,7 +9,7 @@
     <meta http-equiv="Content-Language" content="en">
     
     
-    <title>Leaflet.StyledLayerControl/layers.png at master · davicustodio/Leaflet.StyledLayerControl</title>
+    <title>Leaflet.StyledLayerControl/delete.png at master · davicustodio/Leaflet.StyledLayerControl</title>
     <link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="GitHub">
     <link rel="fluid-icon" href="https://github.com/fluidicon.png" title="GitHub">
     <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-114.png">
@@ -23,7 +23,7 @@
       <meta name="browser-stats-url" content="https://api.github.com/_private/browser/stats">
     <meta name="browser-errors-url" content="https://api.github.com/_private/browser/errors">
     <link rel="assets" href="https://assets-cdn.github.com/">
-    <link rel="web-socket" href="wss://live.github.com/_sockets/MzExNzQyODo4YTdlNjUxMmFlNDI4OThkMmY4N2U1YTIwNWJhMTI1MzpkMjQ0MjEzZmM2ZjJkN2UwMzc5ZmFjYmVjODQyMDA3MmJhNzMzNjJlNTQ4YWI3ZWEwYWZhYWE4YjA1MTk3N2Q1--89d2fc0c0a16051f1fd0356d37f11ad9a65d611f">
+    <link rel="web-socket" href="wss://live.github.com/_sockets/MzExNzQyODo4YTdlNjUxMmFlNDI4OThkMmY4N2U1YTIwNWJhMTI1MzpjNjI1YzgwMjE2NDgyNjc3OWM2OTUxZDI4NzY2YjkwNDQzY2YzNDZjOGQyODFiNzFjM2Q1N2IyMThlZWMyMjY5--d9a4370bc7b228bc2932fe72da12f7ff597affd5">
     <meta name="pjax-timeout" content="1000">
     <link rel="sudo-modal" href="/sessions/sudo_modal">
 
@@ -32,7 +32,7 @@
     <meta name="selected-link" value="repo_source" data-pjax-transient>
       <meta name="google-analytics" content="UA-3769691-2">
 
-    <meta content="collector.githubapp.com" name="octolytics-host" /><meta content="collector-cdn.github.com" name="octolytics-script-host" /><meta content="github" name="octolytics-app-id" /><meta content="4D7EDDD1:3923:2503E7C:5571EE8B" name="octolytics-dimension-request_id" /><meta content="3117428" name="octolytics-actor-id" /><meta content="idoivri" name="octolytics-actor-login" /><meta content="51dd52006c38aeacea672f9ba5302b2f142af0d120f9256f75b195c098879dc5" name="octolytics-actor-hash" />
+    <meta content="collector.githubapp.com" name="octolytics-host" /><meta content="collector-cdn.github.com" name="octolytics-script-host" /><meta content="github" name="octolytics-app-id" /><meta content="4D7EDDD1:3923:2503417:5571EE85" name="octolytics-dimension-request_id" /><meta content="3117428" name="octolytics-actor-id" /><meta content="idoivri" name="octolytics-actor-login" /><meta content="51dd52006c38aeacea672f9ba5302b2f142af0d120f9256f75b195c098879dc5" name="octolytics-actor-hash" />
     
     <meta content="Rails, view, blob#show" name="analytics-event" />
     <meta class="js-ga-set" name="dimension1" content="Logged In">
@@ -46,7 +46,7 @@
 
 
     <meta content="authenticity_token" name="csrf-param" />
-<meta content="kQ9sZn4CIoENsAbYTjpV8msIlU82KuVOOidFIVj83WaM4ScmyUQlUfUFj+DDT/E04OoHNLroet8JD6sksxJpYw==" name="csrf-token" />
+<meta content="+VQULabut6Vo7goRx8t3QadFb1x71ffBK6IUPjh45XQZiFIGgKGMEhsdDBvx+c670s0ZrRW9HSRUALlyFVl23g==" name="csrf-token" />
 
     <link crossorigin="anonymous" href="https://assets-cdn.github.com/assets/github/index-6967b378b26829cc5a2ea2ad4209ff0af50f2a65057962219dc9dcf8942683f0.css" media="all" rel="stylesheet" />
     <link crossorigin="anonymous" href="https://assets-cdn.github.com/assets/github2/index-73bfe123ff406f4bf8959a28667410beaac1485e71c92d4725a3d7afc45fc4c5.css" media="all" rel="stylesheet" />
@@ -172,7 +172,7 @@
   </li>
 
   <li class="header-nav-item">
-    <form accept-charset="UTF-8" action="/logout" class="logout-form" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="g9WgFFOLGbQkZrM/+YOQ4G5JzTYsgnAWeoaaklwz2CPhHHWhWCy94PltmWA+xL56rDGYf3PmxPrnIiED4zcW5w==" /></div>
+    <form accept-charset="UTF-8" action="/logout" class="logout-form" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="q2iX6L8i2DLEdoDKwWmgDpyyTYAFcz/OzWzouUwJrDWuRZIED6D5kqKGrYdVP/p2vMLWo8EAkywkO0TJx0qFWA==" /></div>
       <button class="header-nav-link sign-out-button tooltipped tooltipped-s" aria-label="Sign out" data-ga-click="Header, sign out, icon:logout">
         <span class="octicon octicon-sign-out"></span>
       </button>
@@ -203,7 +203,7 @@
 <ul class="pagehead-actions">
 
   <li>
-      <form accept-charset="UTF-8" action="/notifications/subscribe" class="js-social-container" data-autosubmit="true" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="qAYpZJ/ieUZK7YHki8NkjQBsyz9Ad3iD1U7+lIqDPSJDK51+pa6kUwwQBltYz0iO1ADA98m+kqizMrQI+zr6lQ==" /></div>    <input id="repository_id" name="repository_id" type="hidden" value="24197749" />
+      <form accept-charset="UTF-8" action="/notifications/subscribe" class="js-social-container" data-autosubmit="true" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="RztSTDSFnPJHN/1AY9nuTGgO6P3pDSeD6lwM4k9TM7zvuyKWW6vVtngeSKLEzy2NLJIYbuoyQb9Vc/YSwTrafg==" /></div>    <input id="repository_id" name="repository_id" type="hidden" value="24197749" />
 
       <div class="select-menu js-menu-container js-select-menu">
         <a href="/davicustodio/Leaflet.StyledLayerControl/subscription"
@@ -278,7 +278,7 @@
     
   <div class="js-toggler-container js-social-container starring-container ">
 
-    <form accept-charset="UTF-8" action="/davicustodio/Leaflet.StyledLayerControl/unstar" class="js-toggler-form starred js-unstar-button" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="PW9X9/Cw6uyekuyP+aQk93l3WtuqZXReAyexLpxSQInOYYA5+EfFRhuEo7Shamzks8mo9P/WZKZoZFOMZX3ObA==" /></div>
+    <form accept-charset="UTF-8" action="/davicustodio/Leaflet.StyledLayerControl/unstar" class="js-toggler-form starred js-unstar-button" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="XNug3JrwtFxHV/9ja4YiFaxN3ZtbkrcahNY9MUoEQZSAQRT0siorsVL3Izi1lJY6VB4WbgspC6JPGW7xzt6ORg==" /></div>
       <button
         class="btn btn-sm btn-with-count js-toggler-target"
         aria-label="Unstar this repository" title="Unstar davicustodio/Leaflet.StyledLayerControl"
@@ -290,7 +290,7 @@
           14
         </a>
 </form>
-    <form accept-charset="UTF-8" action="/davicustodio/Leaflet.StyledLayerControl/star" class="js-toggler-form unstarred js-star-button" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="BiEbjQS7jD4Mf0w2/4Azxb15kentUyhzsRfYquFBiyJrMND2hbRQGuU/dQCthVRi80loT8NL6+obEuTx10u7cw==" /></div>
+    <form accept-charset="UTF-8" action="/davicustodio/Leaflet.StyledLayerControl/star" class="js-toggler-form unstarred js-star-button" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="0L66KGujB65FXpsts3A2lf+nOP8uC3ouw3O3M2R2QnDUp9V7jJi+WGK9Rl4sEcfoENKGe8MQ9HGR7rrfHFI8bg==" /></div>
       <button
         class="btn btn-sm btn-with-count js-toggler-target"
         aria-label="Star this repository" title="Star davicustodio/Leaflet.StyledLayerControl"
@@ -439,7 +439,7 @@
 
 
 <div class="clone-options">You can clone with
-  <form accept-charset="UTF-8" action="/users/set_protocol?protocol_selector=http&amp;protocol_type=clone" class="inline-form js-clone-selector-form is-enabled" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="bbv9nXcO6KaQd9i7LcXwQRroK1THSqZqOqnf8IjOcQV340vYx5QD4D0AewyuZBI+e07P/xxtSXrDT7dGrvdFpQ==" /></div><button class="btn-link js-clone-selector" data-protocol="http" type="submit">HTTPS</button></form>, <form accept-charset="UTF-8" action="/users/set_protocol?protocol_selector=ssh&amp;protocol_type=clone" class="inline-form js-clone-selector-form is-enabled" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="/OpaxGbLXVUxR/Ws0CFKlky03uFRxEsk3wdmtSgSNU6Gb1tVNDLQOmtcjT6eX9a34d/29tlJqRWw05d/TAfSEQ==" /></div><button class="btn-link js-clone-selector" data-protocol="ssh" type="submit">SSH</button></form>, or <form accept-charset="UTF-8" action="/users/set_protocol?protocol_selector=subversion&amp;protocol_type=clone" class="inline-form js-clone-selector-form is-enabled" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="r/aI5knp9N4aeE4S4M/xrykk6ZQcWikRqD36m1fzhdm49e8HBl9QO1DG+Ymf0p1N56q5+sUtjRR9n8Z2xtRKSw==" /></div><button class="btn-link js-clone-selector" data-protocol="subversion" type="submit">Subversion</button></form>.
+  <form accept-charset="UTF-8" action="/users/set_protocol?protocol_selector=http&amp;protocol_type=clone" class="inline-form js-clone-selector-form is-enabled" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="XpNNMqg2dEKLyFUZ1nt7z8EhPxg6yJQk2olIYm57LW1KC7RDAQBjDNmeeyLZ/jeOiZw4lQaEyRm3DWfB4Mm5vQ==" /></div><button class="btn-link js-clone-selector" data-protocol="http" type="submit">HTTPS</button></form>, <form accept-charset="UTF-8" action="/users/set_protocol?protocol_selector=ssh&amp;protocol_type=clone" class="inline-form js-clone-selector-form is-enabled" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="AwtByL4oPAY2+SDvlsNpN7Ag/z+U+ETCI5XigFVK5uoQbU9s1W7FeGYW5gqtIdkDFhmmZnxjD/laFRQfBw03IA==" /></div><button class="btn-link js-clone-selector" data-protocol="ssh" type="submit">SSH</button></form>, or <form accept-charset="UTF-8" action="/users/set_protocol?protocol_selector=subversion&amp;protocol_type=clone" class="inline-form js-clone-selector-form is-enabled" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="r3DkBjp5n2lTanmuddmPh65N5ZD+3nRfXNa1/KxPYkXVH4bU8jmFZyqcKuDJuX9xTPHFt/Ov1TM3OLmlgObL9w==" /></div><button class="btn-link js-clone-selector" data-protocol="subversion" type="submit">Subversion</button></form>.
   <a href="https://help.github.com/articles/which-remote-url-should-i-use" class="help tooltipped tooltipped-n" aria-label="Get help on which URL is right for you.">
     <span class="octicon octicon-question"></span>
   </a>
@@ -467,9 +467,9 @@
 
           
 
-<a href="/davicustodio/Leaflet.StyledLayerControl/blob/0d495d2a93eac2b30c8060cafc139ee329f9a5f7/css/images/layers.png" class="hidden js-permalink-shortcut" data-hotkey="y">Permalink</a>
+<a href="/davicustodio/Leaflet.StyledLayerControl/blob/0d495d2a93eac2b30c8060cafc139ee329f9a5f7/css/images/delete.png" class="hidden js-permalink-shortcut" data-hotkey="y">Permalink</a>
 
-<!-- blob contrib key: blob_contributors:v21:ab421c0af328be37562b43cf5e5b5cad -->
+<!-- blob contrib key: blob_contributors:v21:8b64f792318e7144cd29fd1a73593714 -->
 
 <div class="file-navigation js-zeroclipboard-container">
   
@@ -513,7 +513,7 @@
 
 
             <a class="select-menu-item js-navigation-item js-navigation-open "
-               href="/davicustodio/Leaflet.StyledLayerControl/blob/gh-pages/css/images/layers.png"
+               href="/davicustodio/Leaflet.StyledLayerControl/blob/gh-pages/css/images/delete.png"
                data-name="gh-pages"
                data-skip-pjax="true"
                rel="nofollow">
@@ -523,7 +523,7 @@
               </span>
             </a>
             <a class="select-menu-item js-navigation-item js-navigation-open selected"
-               href="/davicustodio/Leaflet.StyledLayerControl/blob/master/css/images/layers.png"
+               href="/davicustodio/Leaflet.StyledLayerControl/blob/master/css/images/delete.png"
                data-name="master"
                data-skip-pjax="true"
                rel="nofollow">
@@ -562,11 +562,11 @@
   </div>
 
   <div class="breadcrumb js-zeroclipboard-target">
-    <span class="repo-root js-repo-root"><span itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/davicustodio/Leaflet.StyledLayerControl" class="" data-branch="master" data-pjax="true" itemscope="url"><span itemprop="title">Leaflet.StyledLayerControl</span></a></span></span><span class="separator">/</span><span itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/davicustodio/Leaflet.StyledLayerControl/tree/master/css" class="" data-branch="master" data-pjax="true" itemscope="url"><span itemprop="title">css</span></a></span><span class="separator">/</span><span itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/davicustodio/Leaflet.StyledLayerControl/tree/master/css/images" class="" data-branch="master" data-pjax="true" itemscope="url"><span itemprop="title">images</span></a></span><span class="separator">/</span><strong class="final-path">layers.png</strong>
+    <span class="repo-root js-repo-root"><span itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/davicustodio/Leaflet.StyledLayerControl" class="" data-branch="master" data-pjax="true" itemscope="url"><span itemprop="title">Leaflet.StyledLayerControl</span></a></span></span><span class="separator">/</span><span itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/davicustodio/Leaflet.StyledLayerControl/tree/master/css" class="" data-branch="master" data-pjax="true" itemscope="url"><span itemprop="title">css</span></a></span><span class="separator">/</span><span itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/davicustodio/Leaflet.StyledLayerControl/tree/master/css/images" class="" data-branch="master" data-pjax="true" itemscope="url"><span itemprop="title">images</span></a></span><span class="separator">/</span><strong class="final-path">delete.png</strong>
   </div>
 </div>
 
-<include-fragment class="commit commit-loader file-history-tease" src="/davicustodio/Leaflet.StyledLayerControl/contributors/master/css/images/layers.png">
+<include-fragment class="commit commit-loader file-history-tease" src="/davicustodio/Leaflet.StyledLayerControl/contributors/master/css/images/delete.png">
   <div class="file-history-tease-header">
     Fetching contributors&hellip;
   </div>
@@ -581,19 +581,19 @@
     <div class="file-actions">
 
       <div class="btn-group">
-        <a href="/davicustodio/Leaflet.StyledLayerControl/raw/master/css/images/layers.png" class="btn btn-sm " id="raw-url">Raw</a>
-        <a href="/davicustodio/Leaflet.StyledLayerControl/commits/master/css/images/layers.png" class="btn btn-sm " rel="nofollow">History</a>
+        <a href="/davicustodio/Leaflet.StyledLayerControl/raw/master/css/images/delete.png" class="btn btn-sm " id="raw-url">Raw</a>
+        <a href="/davicustodio/Leaflet.StyledLayerControl/commits/master/css/images/delete.png" class="btn btn-sm " rel="nofollow">History</a>
       </div>
 
         <a class="octicon-btn tooltipped tooltipped-nw"
-           href="github-mac://openRepo/https://github.com/davicustodio/Leaflet.StyledLayerControl?branch=master&amp;filepath=css%2Fimages%2Flayers.png"
+           href="github-mac://openRepo/https://github.com/davicustodio/Leaflet.StyledLayerControl?branch=master&amp;filepath=css%2Fimages%2Fdelete.png"
            aria-label="Open this file in GitHub for Mac"
            data-ga-click="Repository, open with desktop, type:mac">
             <span class="octicon octicon-device-desktop"></span>
         </a>
 
 
-          <form accept-charset="UTF-8" action="/davicustodio/Leaflet.StyledLayerControl/delete/master/css/images/layers.png" class="inline-form" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="Tsz+ogy2BOZqPGU21OCNnSwde3J5hLb94xgjv0m0WLwSXzrayC5P09kMoGbgmpLDO0+jDjhhDPnWXE5qqn4Ijg==" /></div>
+          <form accept-charset="UTF-8" action="/davicustodio/Leaflet.StyledLayerControl/delete/master/css/images/delete.png" class="inline-form" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="xWHGPkIqKYMU+Ry+Phfazw0qF8YHuMSVfpuH4CFqPRS86ZyGeFm27nHBGQiAqDwK7dHcZe48DAWK7tE1CyUJDg==" /></div>
             <button class="octicon-btn octicon-btn-danger tooltipped tooltipped-n" type="submit" aria-label="Fork this project and delete this file" data-disable-with>
               <span class="octicon octicon-trashcan"></span>
             </button>
@@ -602,13 +602,13 @@
     <div class="file-info">
         <span class="file-mode" title="File mode">executable file</span>
         <span class="file-info-divider"></span>
-      1.502 kB
+      0.715 kB
     </div>
   </div>
   
   <div class="blob-wrapper data type-text">
       <div class="image">
-          <span class="border-wrap"><img src="/davicustodio/Leaflet.StyledLayerControl/blob/master/css/images/layers.png?raw=true" alt="layers.png"></span>
+          <span class="border-wrap"><img src="/davicustodio/Leaflet.StyledLayerControl/blob/master/css/images/delete.png?raw=true" alt="delete.png"></span>
       </div>
   </div>
 
@@ -647,7 +647,7 @@
       <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
 </a>
     <ul class="site-footer-links">
-      <li>&copy; 2015 <span title="0.05812s from github-fe140-cp1-prd.iad.github.net">GitHub</span>, Inc.</li>
+      <li>&copy; 2015 <span title="0.06020s from github-fe127-cp1-prd.iad.github.net">GitHub</span>, Inc.</li>
         <li><a href="https://github.com/site/terms" data-ga-click="Footer, go to terms, text:terms">Terms</a></li>
         <li><a href="https://github.com/site/privacy" data-ga-click="Footer, go to privacy, text:privacy">Privacy</a></li>
         <li><a href="https://github.com/security" data-ga-click="Footer, go to security, text:security">Security</a></li>

@@ -118,7 +118,7 @@
 		}).addTo(map);
 		function onLocationFound(e) {
 			var radius = e.accuracy / 2;
-			L.marker(e.latlng, {color: 'black'}).addTo(map)
+			L.marker(e.latlng, {iconUrl: '/dist/pin-black256.png'}).addTo(map)
 				.bindPopup("אתם נמצאים " + radius + " מטרים מכאן").openPopup();
 			L.circle(e.latlng, radius).addTo(map);
 		}
