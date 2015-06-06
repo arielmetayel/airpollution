@@ -27,3 +27,7 @@ html, body, #map {
 	text-align: right;
     font-family: Alef;
 }
+
+.leaflet-zoom-animated {
+    direction: rtl;
+}
