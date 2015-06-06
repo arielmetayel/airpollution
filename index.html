@@ -221,13 +221,13 @@
 			}
 
 
-			console.log(arr);
+			//console.log(arr);
 			str = "<div class=\"marker\">"
 			str += "<b>עיר:" + arr[0] + "</b><br/>";
 			str += "קוד תחנה: " + arr[1] + "<br/>";
 			str += "סוג המזהם: " +  title + "<br/>";
-			str += "טונות זיהום/שנה: " + arr[pollutantIndex] + "<br/>";
-			str += "עלויות חיצוניות מזיהום האויר: " + arr[costIndex] + "<br/>";
+			str += "טונות זיהום/שנה: " + arr[pollutantIndex] + " טון<br/>";
+			str += "עלויות חיצוניות מזיהום האויר: " + accounting.formatNumber(arr[costIndex]) + ' ש"ח<br/>';
 			
 			/*str += "<a href=\"tel:"+arr[2]+"\">"+arr[2]+"</a><br/>";
 			if (arr[3]!="") {
