@@ -16,14 +16,14 @@
 	
 	
 	 <!--<script src="dist/PruneCluster.js"></script>-->
-	
-	 
+		 
 	<!--
 	<script src="http://code.jquery.com/jquery-1.8.2.js"></script>
 	<script src="http://jquery-csv.googlecode.com/git/src/jquery.csv.js"></script>
 	-->
 
 </head>
+
 <body>
 	<div id="header-wrap">
     	<h3>עלויות חיצוניות מזיהום אוויר בישראל</h3>
@@ -53,17 +53,25 @@
 		//create Icons
 
 
-		var iconIndustry32 = L.icon({iconUrl: 'dist/images/industry32.png'});
-		var iconIndustry64 = L.icon({iconUrl: 'dist/images/industry64.png'});
-		var iconIndustry128 = L.icon({iconUrl: 'dist/images/industry128.png'});
+		var iconIndustry32 = L.icon({iconUrl: 'dist/images/industry32.png',
+			iconSize:     [32, 32]});
+		var iconIndustry64 = L.icon({iconUrl: 'dist/images/industry64.png',
+			iconSize:     [64, 64]});
+		var iconIndustry128 = L.icon({iconUrl: 'dist/images/industry128.png',
+			iconSize:     [128, 128]});
 
-		var iconElectricity32 = L.icon({iconUrl: 'dist/images/electricity32.png'});
+		var iconElectricity32 = L.icon({iconUrl: 'dist/images/electricity32.png',
+			iconSize:     [32, 32]});
 		var iconElectricity64 = L.icon({iconUrl: 'dist/images/electricity64.png'});
-		var iconElectricity128 = L.icon({iconUrl: 'dist/images/electricity128.png'});
+		var iconElectricity128 = L.icon({iconUrl: 'dist/images/electricity128.png',
+			iconSize:     [128, 128]});
 
-		var iconTransportation32 = L.icon({iconUrl: 'dist/images/transport32.png'});
-		var iconTransportation64 = L.icon({iconUrl: 'dist/images/transport64.png'});
-		var iconTransportation128 = L.icon({iconUrl: 'dist/images/transport128.png'});
+		var iconTransportation32 = L.icon({iconUrl: 'dist/images/transport32.png',
+			iconSize:     [32, 32]});
+		var iconTransportation64 = L.icon({iconUrl: 'dist/images/transport64.png',
+			iconSize:     [64, 64]});
+		var iconTransportation128 = L.icon({iconUrl: 'dist/images/transport128.png',
+			iconSize:     [128, 128]});
 
 		var iconDictionary = {}; //TODO remove redundant instatiation + assignments
 
