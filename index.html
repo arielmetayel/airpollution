@@ -123,12 +123,13 @@
 			L.circle(e.latlng, radius).addTo(map);
 		}
 		function onLocationError(e) {
-			alert(e.message);
+			map.setView([31.782,35.21933], 13);
+			//alert(e.message);
 		}
 		map.on('locationfound', onLocationFound);
 		map.on('locationerror', onLocationError);
 		map.locate({setView: true, maxZoom: 13});
-		//map.setView([31.782,35.21933], 16);
+		
 		
 		
 
