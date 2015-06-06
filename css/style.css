@@ -22,6 +22,10 @@ html, body, #map {
     
 }
 
+#opener {
+    margin-right: 10px; 
+}
+
 .leaflet-popup-content {
 	direction: rtl;
 	text-align: right;
@@ -52,12 +56,15 @@ Floating Message Box
 #hide-me ~ label > .message {
   position: relative;
   margin: auto;
-  width: 400px;
+  width: 60%;
+  height: 60%;
   background: #F7F9F3;
   padding: 2.5em;
   font-size: 1.25em;
   box-shadow: 0 5px 30px 5px #222;
+  overflow:scroll; 
 }
+
 #hide-me ~ label .close {
   display: block;
   position: absolute;
@@ -83,12 +90,14 @@ span.msgbox-emphasis {
 
 #hide-me[type=checkbox] ~ .content {
   -webkit-filter: blur(5px);
+
 }
 #hide-me[type=checkbox]:checked ~ label {
   display: none;
 }
 #hide-me[type=checkbox]:checked ~ .content {
   -webkit-filter: none;
+  max-height: 400px;
 }
 
 /** begin: debugging tool 
