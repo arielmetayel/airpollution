@@ -31,7 +31,22 @@
     	<!-- <p>אזהרה: מיקום הקלפיות משוער, וחלקו חסר. אנא השתמשו באתר <a href="http://bechirot.gov.il/">ועדת הבחירות המרכזית</a> על מנת לקבל מידע מוסמך.</p> -->
 
 	</div>
-	<div id="map"></div>
+	<div id="map">
+
+
+		<input type="checkbox" id="hide-me">
+			<label for="hide-me">
+			  <div class="message"><span class="close">X</span>
+			    <h2>מה תוכלו לראות כאן?</h2>
+			    <p>במפה זו מוצג מידע על העלויות החיצוניות</span> של מזהמים שונים
+			    ברחבי הארץ, לפי נתוני <a href="http://www.sviva.gov.il/PRTRIsrael/Pollutant-emissions-inventory/Pages/Pollutant-Emissions-Inventory-GIS.aspx" target="_blank">מצאי פליטות המזהמים</a>. </p>
+			    <p><span class="msgbox-emphasis">מהן עלות חיצונית לזיהום אוויר?</span> העלויות החיצוניות הן ניסיון להעריף כלכלית את הנזקים השונים, בעיקר הבריאותיים (תמותה ותחלואה) הנגרם כתוצאה מפליטת מזהמים.</p>
+			    <p><span class="msgbox-emphasis">סוגי המזהמים על המפה:</span> לורם איפסום דולור סיט אמט.</p>
+
+			  </div>
+			</label>
+		</input>
+	</div>
 
 	<script>
 		var map = L.map('map');
