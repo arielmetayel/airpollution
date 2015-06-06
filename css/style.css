@@ -28,6 +28,6 @@ html, body, #map {
     font-family: Alef;
 }
 
-.leaflet-zoom-animated {
+.leaflet-control {
     direction: rtl;
 }
