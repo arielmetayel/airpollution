@@ -88,6 +88,11 @@ span.msgbox-emphasis {
   color:green;
 }
 
+span.msgbox-emphasis-neg {
+  font-weight: bold;
+  color:red;
+}
+
 #hide-me[type=checkbox] ~ .content {
   -webkit-filter: blur(5px);
 
