@@ -29,7 +29,7 @@
 
 <body>
 	<div id="header-wrap">
-    	<h3>עלויות חיצוניות מזיהום אוויר בישראל      <button id="opener">מה זה?</button> </h3>
+    	<h3>עלויות חיצוניות מזיהום אוויר בישראל      <button id="opener">מה רואים כאן?</button> </h3>
     	<!-- <p>אזהרה: מיקום הקלפיות משוער, וחלקו חסר. אנא השתמשו באתר <a href="http://bechirot.gov.il/">ועדת הבחירות המרכזית</a> על מנת לקבל מידע מוסמך.</p> -->
 
 	</div>
@@ -191,12 +191,12 @@
 			L.circle(e.latlng, radius).addTo(map);
 		}
 		function onLocationError(e) {
-			map.setView([31.782,35.21933], 13);
+			map.setView([31.782,35.21933], 15);
 			//alert(e.message);
 		}
 		map.on('locationfound', onLocationFound);
 		map.on('locationerror', onLocationError);
-		map.locate({setView: true, maxZoom: 13});
+		map.locate({setView: true, maxZoom: 15});
 		
 		
 		
