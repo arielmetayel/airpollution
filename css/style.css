@@ -70,6 +70,7 @@ Floating Message Box
   position: absolute;
   top: 5px;
   right: 5px;
+  bottom: 0px;
   color: #eee;
   background: #C00;
   padding: 3px;
