@@ -1,4 +1,13 @@
-@import url(http://fonts.googleapis.com/css?family=Alef);
+@font-face{
+    
+    font-style:normal;
+    font-family:alef;
+    src:url(/dist/fonts/Alef-Regular.eot);
+    src:url(/dist/fonts/Alef-Regular.eot#iefix) format(embedded-opentype),
+        url(/dist/fonts/font/Alef-Regular.woff) format(woff),
+        url(/dist/fonts/Alef-Regular.svg) format(truetype),
+        url(/dist/fonts/opensans-light-webfont.svg#open_sanslight) format(svg)
+}
 
 body {
     padding: 0;
