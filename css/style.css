@@ -1,14 +1,3 @@
-@font-face{
-    
-    font-style:normal;
-    font-family:alef;
-    src:url(https://github.com/idoivri/airpollution/raw/gh-pages/dist/fonts/Alef-Regular.eot);
-    src:url(https://github.com/idoivri/airpollution/raw/gh-pages/dist/fonts/Alef-Regular.eot#iefix) format(embedded-opentype),
-        url(https://github.com/idoivri/airpollution/raw/gh-pages/dist/fonts/Alef-Regular.woff) format(woff),
-        url(https://github.com/idoivri/airpollution/raw/gh-pages/dist/fonts/Alef-Regular.svg) format(truetype),
-        url(https://github.com/idoivri/airpollution/raw/gh-pages/dist/fonts/opensans-light-webfont.svg#open_sanslight) format(svg)
-}
-
 body {
     padding: 0;
     margin: 0;
