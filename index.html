@@ -5,7 +5,7 @@
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	
+
 	<link rel="stylesheet" href="dist/leaflet.css" />
 	<script src="dist/papaparse.js"></script>
 	<script src="dist/accounting.min.js"></script>
@@ -103,7 +103,10 @@
 	</div>
 
 	<script>
-		var map = L.map('map');
+		var map = L.map('map', {
+			maxBounds : [[30,28], [34,44]],
+			minZoom: 7
+		});
 
 		var industryLayer = new L.LayerGroup();
 		var electricityLayer = new L.LayerGroup();
