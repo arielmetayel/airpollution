@@ -2,11 +2,11 @@
     
     font-style:normal;
     font-family:alef;
-    src:url(/dist/fonts/Alef-Regular.eot);
-    src:url(/dist/fonts/Alef-Regular.eot#iefix) format(embedded-opentype),
-        url(/dist/fonts/font/Alef-Regular.woff) format(woff),
-        url(/dist/fonts/Alef-Regular.svg) format(truetype),
-        url(/dist/fonts/opensans-light-webfont.svg#open_sanslight) format(svg)
+    src:url(https://github.com/idoivri/airpollution/raw/gh-pages/dist/fonts/Alef-Regular.eot);
+    src:url(https://github.com/idoivri/airpollution/raw/gh-pages/dist/fonts/Alef-Regular.eot#iefix) format(embedded-opentype),
+        url(https://github.com/idoivri/airpollution/raw/gh-pages/dist/fonts/Alef-Regular.woff) format(woff),
+        url(https://github.com/idoivri/airpollution/raw/gh-pages/dist/fonts/Alef-Regular.svg) format(truetype),
+        url(https://github.com/idoivri/airpollution/raw/gh-pages/dist/fonts/opensans-light-webfont.svg#open_sanslight) format(svg)
 }
 
 body {
