@@ -25,41 +25,41 @@ ap.map = (function () {
 
 
     var iconIndustry32 = L.icon({
-        iconUrl: 'src/images/industry32.png',
+        iconUrl: 'images/industry32.png',
         iconSize: [32, 32], popupAnchor: [0, -5]
     });
     var iconIndustry64 = L.icon({
-        iconUrl: 'src/images/industry64.png',
+        iconUrl: 'images/industry64.png',
         iconSize: [64, 64], popupAnchor: [0, -5]
     });
     var iconIndustry128 = L.icon({
-        iconUrl: 'src/images/industry128.png',
+        iconUrl: 'images/industry128.png',
         iconSize: [128, 128], popupAnchor: [0, -5]
     });
 
     var iconElectricity32 = L.icon({
-        iconUrl: 'src/images/electricity32.png',
+        iconUrl: 'images/electricity32.png',
         iconSize: [32, 32], popupAnchor: [0, -5]
     });
     var iconElectricity64 = L.icon({
-        iconUrl: 'src/images/electricity64.png',
+        iconUrl: 'images/electricity64.png',
         iconSize: [64, 64], popupAnchor: [0, -5]
     });
     var iconElectricity128 = L.icon({
-        iconUrl: 'src/images/electricity128.png',
+        iconUrl: 'images/electricity128.png',
         iconSize: [128, 128], popupAnchor: [0, -5]
     });
 
     var iconTransportation32 = L.icon({
-        iconUrl: 'src/images/transport32.png',
+        iconUrl: 'images/transport32.png',
         iconSize: [32, 32], popupAnchor: [0, -5]
     });
     var iconTransportation64 = L.icon({
-        iconUrl: 'src/images/transport64.png',
+        iconUrl: 'images/transport64.png',
         iconSize: [64, 64], popupAnchor: [0, -5]
     });
     var iconTransportation128 = L.icon({
-        iconUrl: 'src/images/transport128.png',
+        iconUrl: 'images/transport128.png',
         iconSize: [128, 128], popupAnchor: [0, -5]
     });
 
@@ -235,7 +235,7 @@ ap.map = (function () {
         }
 
     }
-
+/*
 
     $("#opener").click(function () {
         console.log("AHA!!")
@@ -250,6 +250,8 @@ ap.map = (function () {
             'background': 'rgba(0,0,0,.5)',
             'background': 'radial-gradient(ellipse at center, rgba(0,0,0,.2) 0%, rgba(0,0,0,.9) 150%)'
         });
+
+
 
         var $label =  $("#hide-me ~ label");
 
@@ -288,7 +290,7 @@ ap.map = (function () {
             'display': 'none'
         });
     });
-
+*/
 
     return {}
 
