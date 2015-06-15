@@ -1,0 +1,39 @@
+{
+  "name": "pollutionCosts",
+  "version": "0.0.0",
+  "description": "a project dedicated to the mapping of air pollutants  ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/idoivri/airpollution.git"
+  },
+  "keywords": [
+    "air",
+    "pollution",
+    "pollution",
+    "israel",
+    "open",
+    "source"
+  ],
+  "authors": [
+    "Ido Ivri",
+    "Yaron Michael",
+    "Michael Katz",
+    "Adi Chapal"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/idoivri/airpollution/issues"
+  },
+  "homepage": "https://github.com/idoivri/airpollution",
+  "devDependencies": {
+    "bower": "~1.4.1",
+    "grunt": "~0.4.5",
+    "grunt-cli": "~0.1.13",
+    "grunt-wiredep": "~2.0.0"
+  },
+  "dependencies": {}
+}
