@@ -3172,7 +3172,7 @@ L.tileLayer.canvas = function (options) {
 
 
 /*
- * L.ImageOverlay is used to overlay images over the map (to specific geographical bounds).
+ * L.ImageOverlay is used to overlay dropdown-menu-images over the map (to specific geographical bounds).
  */
 
 L.ImageOverlay = L.Class.extend({
@@ -4080,7 +4080,7 @@ L.Popup = L.Class.extend({
 		this._containerBottom = -offset.y - (animated ? 0 : pos.y);
 		this._containerLeft = -Math.round(this._containerWidth / 2) + offset.x + (animated ? 0 : pos.x);
 
-		// bottom position the popup in case the height of the popup changes (images loading etc)
+		// bottom position the popup in case the height of the popup changes (dropdown-menu-images loading etc)
 		this._container.style.bottom = this._containerBottom + 'px';
 		this._container.style.left = this._containerLeft + 'px';
 	},

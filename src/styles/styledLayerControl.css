@@ -57,10 +57,10 @@
 	height: 24px;
 	right: 13px;
 	top: 7px;
-	background: transparent url(images/arrow_down.png) no-repeat center center;	
+	background: transparent url(../images/dropdown-menu-images/arrow_down.png) no-repeat center center;
 }
 .ac-container input.menu:checked + label:hover:after{
-	background-image: url(images/arrow_up.png);
+	background-image: url(../images/dropdown-menu-images/arrow_up.png);
 }
 .ac-container input.menu{
 	display: none;
@@ -113,7 +113,7 @@
 .bt_delete{
     position: relative;
 	float: right;
-	background-image: url(images/delete.png); 
+	background-image: url(../images/dropdown-menu-images/delete.png);
     background-color: transparent; 
     background-repeat: no-repeat;  
     background-position: 0px 0px;  
@@ -127,6 +127,6 @@
 .leaflet-control-layers:hover {
 	direction: rtl;
 	box-shadow: 0 1px 5px rgba(0,0,0,0.4);
-	background: #e0e3ec url(images/bgnoise_lg.jpg) repeat top left;
+	background: #e0e3ec url(../images/dropdown-menu-images/bgnoise_lg.jpg) repeat top left;
 	border-radius: 5px;
 }
