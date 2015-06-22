@@ -13,99 +13,50 @@
 </head>
 
 <body>
-<!--
-<div id="header-wrap">
-    <h3>עלויות חיצוניות מזיהום אוויר בישראל
-        <button id="opener" type="button">מה רואים כאן?</button>
-    </h3>
-</div>
--->
 
-<aside class="side-bar">lorem ipsum</aside>
-<div id="map">
-    <!--
-    <input type="checkbox" id="hide-me">
-    <label for="hide-me">
-        <div class="message">
-            <span class="close">X</span>
-            <div class="message-content">
+    <aside class="side-bar">
+        <img class="logo" src="images/hasadna_logo_white.png" alt="HaSadna logo"/>
+        <h1 class="title">סביבה פתוחה</h1>
+        <section id="introduction">
+        <div class="description">
+            הסבר בכמה מילים על הפרויקט.
 
-                <h2>מה תוכלו לראות כאן?</h2>
-
-                <p>במפה זו מוצג מידע על העלויות החיצוניות</span> של מזהמים שונים
-                    ברחבי הארץ, לפי נתוני <a
-                            href="http://www.sviva.gov.il/PRTRIsrael/Pollutant-emissions-inventory/Pages/Pollutant-Emissions-Inventory-GIS.aspx"
-                            target="_blank">מצאי פליטות המזהמים</a>. </p>
-
-                <p><span class="msgbox-emphasis">מהן עלות חיצונית לזיהום אוויר?</span> העלויות החיצוניות הן ניסיון
-                    להעריך כלכלית את הנזקים השונים, בעיקר הבריאותיים (תמותה ותחלואה) הנגרם כתוצאה מפליטת מזהמים.</p>
-
-                <p><span class="msgbox-emphasis">סוגי המזהמים על המפה:</span></p>
-                <ul>
-                    <li><span class="msgbox-emphasis">Nox: תחמוצות חנקן Nitrogen Oxides:</span>
-                        תחמוצות חנקן נפלטות מכל תהליך שריפה בטמפרטורות גבוהות, כמו מצינורות הפליטה של כלי רכב, מארובות,
-                        מכיריים של גז בישול.
-                        <span class="msgbox-emphasis-neg"> מכלל תחמוצות החנקן, חנקן דו-חמצני (NO2) הוא הבעייתי מבחינה בריאותית וסביבתית. חשיפה של בין חצי שעה ל-24 שעות ברמות מעל 1880 מק"ג/מ"ק, עלולה לגרום להגברת תגובות דלקתיות במערכת הנשימה, עלייה ברגישות למחלות נגיפיות, ועוד.</span>
-                    </li>
-                    <li><span class="msgbox-emphasis">CO פחמן חד חמצני carbon monoxide:</span>
-                        גז חסר צבע, ריח וטעם. מקורותיו הם פליטות מכלי רכב, תנורי חימום (בעירה), תהליכים תעשייתיים ועשן
-                        סיגריות.
-			    		<span class="msgbox-emphasis-neg">חשיפה לריכוזים נמוכים של הגז גורמת לסחרחורות, לבחילות ולכאבי ראש, ירידה ביכולת הריכוז ופגיעה בערנות וביכולות הפיזיות.
-			    		</span>
-                        חשיפה לגז מתרחשת כתוצאה מעישון, הימצאות בחניונים סגורים או בסמוך למוקדי תחבורה גדולים ועוד.
-                    </li>
-                    <li><span class="msgbox-emphasis">PM חלקיקים Particulate Matter:</span>
-                        באוויר מרחפים כל העת חלקיקים נוזליים ומוצקים בגדלים ובריכוזים שונים, אשר מגיעים ממקורות טבעיים
-                        או תעשייתים. מרכיביהם עלולים לכלול פחמן שחור ופחמן אורגני, כימיקלים אורגניים, אמוניה, מתכות,
-                        חלקיקי קרקע ועוד. חלקיקים גדולים נראים כעשן ארובות ושריפות, סופות חול, אבק ממחצבות ואתרי בניה או
-                        עשן רכבים.
-			    		<span class="msgbox-emphasis-neg">
-			    		החלקיקים השונים עלולים לגרום לתחלואה לבבית, נשימתית, ולסיבוכים הקשורים בתפקודי מערכת הנשימה. חשיפה ארוכת שנים לחלקיקים גורמת לתמותה ממחלות לב בשיעורים גבוהים יותר יחסית לחשיפה קצרת טווח, ומורידה את תוחלת החיים.
-			    		</span>
-
-                    </li>
-                    <li><span class="msgbox-emphasis">SOx תחמוצות גופרית Sulfur Oxides:</span>
-                        תחמוצות גופרית נוצרות כאשר גופרית, הנמצאת בדלקים כמו פחם, מזוט, וסולר תעשייתי, מתחמצנת בעת שריפה
-                        (תחנות כוח, בתי זיקוק לנפט, דוודי קיטור,גנרטורים) ונפלטת לסביבה.
-
-			    		<span class="msgbox-emphasis-neg">
-			    		עבור אנשים בריאים, חשיפה גורמת לגירוי זמני המוביל לאי נוחות מועטה, אך אם אדם מסוים מתגורר בסמוך למקור לפליטות מתמשכות, הגירוי יכול להפוך למטרד ולעתים תתכן פגיעה מסויימת בתפקודי הריאות בקרב ילדים.
-			    		</span>
-                    </li>
-                    <li><span class="msgbox-emphasis">בנזן Benzene:</span>
-                        המקורות העיקריים לפליטתו הן בתעשיית הגומי, זיקוק וייצור דלק וייצור כימיקלים, עישון סיגריות,
-                        מילוי מכלי דלק.
-			    		<span class="msgbox-emphasis-neg">
-			    		חשיפה נשימתית קצרת טווח עלולה לגרום לגירויים בעיניים, נמנום, כאבי ראש, סחרחורות והקאה. בחשיפה ארוכת טווח בנזן ידוע כמסרטן.
-			    		</span>
-
-                    </li>
-                    <li><span class="msgbox-emphasis">Nox: תחמוצות חנקן Nitrogen Oxides</span>
-                        חומרים אורגניים המתנדפים לאוויר ונמצאים לרוב במצב נוזלי בטמפ׳ הסביבה (דלקים, צבעים, דבקים, חומרי
-                        הדברה, מוצרי קוסמטיקה ועוד), אך גם נפלטים בשריפה. חשיפה נשימתית לחומרים אלו יכולה להיות באזורי
-                        תעשיה כימית ופטרוכימית, בסמוך למוקדי איחסון של דלקים וחומרים אורגניים, במוקדי תחבורה ראשיים,
-                        בתחנות דלק, ובתוך מבנים (צבעים, דבקים, חומרי ניקוי או מטהרי אוויר).
-			    		<span class="msgbox-emphasis-neg">
-			    			חשיפה עלולה לגרום לגירוי עיניים, אף וגרון, לכאבי ראש, לבחילות, לתגובת עור אלרגית, ואף לפגיעה בכבד, בכליות ובמערכת העצבים המרכזית. 
-			    		</span>
-                    </li>
-                    <!--
-                    <li><span class="msgbox-emphasis">תרכובות אורגניות נדיפות שאינן מתאן</span>
-
-                        <span class="msgbox-emphasis-neg">
-                        </span>
-
-                    </li>
-
-                </ul>
-
-            </div>
+            במפה זו מוצג מידע על העלויות החיצוניות של מזהמים שונים ברחבי הארץ, לפי נתוני מצאי פליטות מזהמים.
         </div>
-    </label>
+        <h2 class="subtitle">
+            מהי עלות חיצונית לזיהום אוויר?
+        </h2>
+        <div class="description">
+העלויות החיצוניות הן נסיון להעריך כלכלית את הנזקים השונים, בעיקר הבריאותיים (תמותה ותחלואה) הנגרם כתוצאה מפליטת מזהמים.
+        </div>
+        </section>
+        <section id="polluters">
+        <h2 class="subtitle">
+            סוגי המזהמים:
+        </h2>
+        <ul>
+            <li><input type="checkbox" id="industry"><label for="industry"> תעשייה</label> </li>
+            <li><input type="checkbox" id="transportation"><label for="transportation"> תחבורה </label></li>
+            <li><input type="checkbox" id="electricity"><label for="electricity"> ייצור חשמל </label></li>
+        </ul>
+        </section>
+        <section id="pollutants">
+        <h2 class="subtitle">
+            סוגי המזהמים על המפה:
+        </h2>
+        <div class="description">
+            <ul>
+                <li>תחמוצות חנקן</li>
+                <li>פחמן דו-חמצני</li>
+                <li>חלקיקים</li>
+            </ul>
+        </div>
+        </section>
 
-    -->
-</div>
+    </aside>
 
+    <div id="map">
+    </div>
 
 <script src="../bower_components/jquery/dist/jquery.js"></script>
 <script src="../bower_components/leaflet/dist/leaflet.js"></script>

@@ -148,4 +148,26 @@ article {
     bottom: 0;
     right: 0;
     z-index: 1;
+    padding: 25px;
+    overflow: auto;
+}
+
+.logo {
+    display: block;
+    margin: 0 auto;
+}
+
+.title {
+    margin-top: 0;
+    text-align: center;
+}
+
+.project-name {
+    text-align: center;
+}
+
+#polluters ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
 }
