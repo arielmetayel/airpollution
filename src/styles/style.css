@@ -152,11 +152,22 @@ article {
     z-index: 1;
     padding: 35px;
     overflow: auto;
+    line-height: 0;
+}
+
+h1.title {
+    line-height: 25px;
+    margin-bottom: 20px;
+}
+
+h2.subtitle {
+    margin-bottom: 15px;
 }
 
 .logo {
     display: block;
     margin: 0 auto;
+    padding-bottom: 10px;
 }
 
 .title {
@@ -168,8 +179,12 @@ article {
     text-align: center;
 }
 
+.description {
+    line-height: 25px;
+}
+
 #polluters ul {
     margin: 0;
-    padding: 0;
+    padding: 10px;
     list-style-type: none;
 }
