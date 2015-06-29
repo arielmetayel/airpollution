@@ -2,8 +2,9 @@
  * Created by michael.katz on 6/15/15.
  */
 var ap = ap || {};
+ap.modules = ap.modules || {};
 
-ap.map = (function () {
+ap.modules.map = (function () {
     var map = L.map('map');
 
     var industryLayer = new L.LayerGroup();

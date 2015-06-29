@@ -7,17 +7,18 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel="stylesheet" href="../bower_components/Leaflet.StyledLayerControl/css/styledLayerControl.css"/>
     <!-- bower:css -->
-    <link rel="stylesheet" href="../bower_components/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="../bower_components/leaflet/dist/leaflet.css"/>
     <!-- endbower -->
     <link rel="stylesheet" href="styles/style.css"/>
 </head>
 
 <body>
 
-    <aside class="side-bar">
-        <img class="logo" src="images/haSadna-logo.png" alt="HaSadna logo"/>
-        <h1 class="title">סביבה פתוחה</h1>
-        <section id="introduction">
+<aside class="side-bar">
+    <img class="logo" src="images/haSadna-logo.png" alt="HaSadna logo"/>
+
+    <h1 class="title">סביבה פתוחה</h1>
+    <section id="introduction">
         <div class="description">
             הסבר בכמה מילים על הפרויקט.
 
@@ -26,24 +27,27 @@
         <h2 class="subtitle">
             מהי עלות חיצונית לזיהום אוויר?
         </h2>
+
         <div class="description">
-העלויות החיצוניות הן נסיון להעריך כלכלית את הנזקים השונים, בעיקר הבריאותיים (תמותה ותחלואה) הנגרם כתוצאה מפליטת מזהמים.
+            העלויות החיצוניות הן נסיון להעריך כלכלית את הנזקים השונים, בעיקר הבריאותיים (תמותה ותחלואה) הנגרם כתוצאה
+            מפליטת מזהמים.
         </div>
-        </section>
-        <section id="polluters">
+    </section>
+    <section id="polluters">
         <h2 class="subtitle">
             סוגי המזהמים:
         </h2>
         <ul>
-            <li><input type="checkbox" id="industry"><label for="industry"> תעשייה</label> </li>
+            <li><input type="checkbox" id="industry"><label for="industry"> תעשייה</label></li>
             <li><input type="checkbox" id="transportation"><label for="transportation"> תחבורה </label></li>
             <li><input type="checkbox" id="electricity"><label for="electricity"> ייצור חשמל </label></li>
         </ul>
-        </section>
-        <section id="pollutants">
+    </section>
+    <section id="pollutants">
         <h2 class="subtitle">
             סוגי המזהמים על המפה:
         </h2>
+
         <div class="description">
             <ul>
                 <li>תחמוצות חנקן</li>
@@ -51,13 +55,14 @@
                 <li>חלקיקים</li>
             </ul>
         </div>
-        </section>
+    </section>
 
-    </aside>
+</aside>
 
-    <div id="map">
-    </div>
-
+<div id="map">
+</div>
+<!-- build:js dist/scripts/vendor.js -->
+<!-- bower:js -->
 <script src="../bower_components/jquery/dist/jquery.js"></script>
 <script src="../bower_components/leaflet/dist/leaflet.js"></script>
 <script src="../bower_components/jquery-ui/jquery-ui.js"></script>
@@ -66,8 +71,11 @@
 <!-- endbower -->
 
 <script src="../bower_components/Leaflet.StyledLayerControl/src/styledLayerControl.js"></script>
+<!--endbuild -->
 
+<script src="scripts/ap.js"></script>
+<script src="scripts/ap.modules/ap.modules.js"></script>
+<script src="scripts/ap.modules/ap.modules.map.js"></script>
 
-<script src="scripts/ap.map.js"></script>
 </body>
 </html>
