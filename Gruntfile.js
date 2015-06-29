@@ -2,7 +2,6 @@ module.exports = function (grunt) {
 
     grunt.initConfig({
         wiredep: {
-
             task: {
                 src: ['src/**/*.html']
 
@@ -11,7 +10,7 @@ module.exports = function (grunt) {
         useminPrepare: {
             html: 'src/index.html',
             options: {
-                dest: 'dist',
+                dest: '.',
                 flow: {
                     html: {
                         steps: {
@@ -21,6 +20,23 @@ module.exports = function (grunt) {
                         post: {}
                     }
                 }
+            }
+        },
+        uglify: {
+            generated: {
+                sourceMap: true,
+                sourceMapIn: function(file) {
+                    return file + ".map"
+                },
+                files: [
+                    {
+                        src: [ 'dist/scripts/vendor.js' ],
+                        dest: 'dist/scripts/vendor.js'
+                    },{
+                        src: [ 'dist/scripts/main.js' ],
+                        dest: 'dist/scripts/main.js'
+                    }
+                ]
             }
         },
 
@@ -34,6 +50,13 @@ module.exports = function (grunt) {
                     'dist/styles'
                 ]
             }
+        },
+        concat: {
+            options: {
+                sourceMap: true
+            },
+            generated: {
+            }
         }
     });
 
@@ -43,9 +66,9 @@ module.exports = function (grunt) {
     grunt.registerTask('default', ['wiredep']);
     grunt.registerTask('build', [
         'useminPrepare',
-        'concat',
-       // 'cssmin:generated',
-      //  'uglify:generated',
+        'concat:generated',
+        'cssmin:generated',
+        'uglify:generated',
         //'filerev',
         'usemin'
     ]);
