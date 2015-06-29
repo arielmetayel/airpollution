@@ -1,4 +1,6 @@
-@import url(http://fonts.googleapis.com/css?family=Alef);
+
+@font-face { font-family: Arbel; src: url('../fonts/ArbelHagilda_Regular.otf'); } 
+
 
 body {
     padding: 0;
@@ -18,7 +20,7 @@ body {
 html, body, #map {
     direction: rtl;
     height: 100%;
-    font-family: Alef;
+    font-family: Arbel;
 
 }
 
@@ -31,7 +33,7 @@ html, body, #map {
 .leaflet-popup-content {
     direction: rtl;
     text-align: right;
-    font-family: Alef;
+    font-family: Arbel;
 }
 
 .leaflet-control {
@@ -148,7 +150,7 @@ article {
     bottom: 0;
     right: 0;
     z-index: 1;
-    padding: 25px;
+    padding: 35px;
     overflow: auto;
 }
 
