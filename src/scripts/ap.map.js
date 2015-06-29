@@ -102,7 +102,7 @@ ap.map = (function () {
         attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
         '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
         'Imagery © <a href="http://mapbox.com">Mapbox</a>',
-        id: 'examples.map-i875mjb7'
+        id: 'itahagai.md8f4gg5'
     }).addTo(map);
     function onLocationFound(e) {
         var radius = e.accuracy / 2;
