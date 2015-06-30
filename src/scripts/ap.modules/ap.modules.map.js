@@ -80,7 +80,7 @@ ap.modules.map = (function () {
 
     var overlays = [
         {
-            groupName: "תחומוצות חנקן NOx",
+            groupName: "",
             expanded: true,
             layers: {
                 "תעשיה": industryLayer,
@@ -94,7 +94,8 @@ ap.modules.map = (function () {
         container_width: "300px",
         container_maxHeight: "350px",
         group_maxHeight: "80px",
-        exclusive: true
+        exclusive: true,
+        collapsed: false
     };
 
     //var pruneCluster = new L.layerGroup([]);
@@ -158,6 +159,10 @@ ap.modules.map = (function () {
 
             var control = L.Control.styledLayerControl([], overlays, styledLayerOptions);
             map.addControl(control);
+
+            control._container.remove();
+
+            $('#pollutantList').append(control.onAdd(map));
 
         }
     });
