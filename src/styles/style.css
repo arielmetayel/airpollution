@@ -156,11 +156,14 @@ article {
 }
 
 h1.title {
+    font-weight: bold;
     line-height: 25px;
     margin-bottom: 20px;
 }
 
 h2.subtitle {
+    margin-top: 25px;
+    font-size:25px;
     margin-bottom: 15px;
 }
 
@@ -183,8 +186,8 @@ h2.subtitle {
     line-height: 25px;
 }
 
-#polluters ul {
+.pollutant{
     margin: 0;
-    padding: 10px;
+    padding-bottom: 10px;
     list-style-type: none;
 }
