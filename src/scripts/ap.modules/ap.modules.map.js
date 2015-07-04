@@ -5,7 +5,7 @@ var ap = ap || {};
 ap.modules = ap.modules || {};
 
 var map;
-var geoJsonCollection = [];
+var geoJsonCollection = {}; //should be []
 var svg;
 var g;
 
@@ -361,6 +361,7 @@ ap.modules.map = (function () {
         //     geoJsonLayer = collection;
         // });
 
+        geoJsonCollection = geojsonLayer;
         return geojsonLayer;
     }
 
@@ -407,17 +408,31 @@ ap.modules.map = (function () {
         //var svg = d3.select("[color=red]")
         //  .append("svg");
 
-        var t = textures.lines()
-            .orientation("vertical", "horizontal")
-            .size(4)
-            .strokeWidth(1)
-            .shapeRendering("crispEdges")
-            .stroke("darkorange");
+        var t = textures.lines().thicker();
 
         svg.call(t);
 
         svg.append("g")
           .style("fill", t.url());
+
+        svg.append
+
+        /*
+        console.log(geoJsonCollection);
+
+        var layers = geoJsonCollection._layers;
+
+        var svgPoints = svg.selectAll("g").append("svg")
+          .data(layers)
+          .enter()
+          .append("g")
+
+        var t = textures.lines().thicker();
+
+        svgPoints.call(t);
+        svgPoints.append("circle").style("fill", t.url());
+
+        */
 
         // if (!bottomRight || !topLeft) {
         //     return;
@@ -448,7 +463,7 @@ var industryLayerStyle = {
                     color: "#D73027",
                     fillColor: "#fc8d59",
                     weight: 3,
-                    opacity: 0.5,
+                    fillOpacity: 0.5,
                     className: "industryLayer"
 };
 
@@ -456,16 +471,16 @@ var transportationLayerStyle = {
                     color: "#fee08b",
                     fillColor: "#FFFF00",
                     weight: 3,
-                    opacity: 0.5,
+                    fillOpacity: 0.5,
                     className: "transportationLayer"
 };
 
 var electricityLayerStyle = {
                     color: "#91cf60",
                     //fillColor: "#d9ef8b",
-                    fillColor: "red",
+                    fillColor: "blue",
                     weight: 3,
-                    opacity: 0.5,
+                    fillOpacity: 0.5,
                     dashArray: "5, 10",
                     className: "electricityLayer"
 };
