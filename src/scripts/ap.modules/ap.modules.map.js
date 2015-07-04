@@ -4,12 +4,19 @@
 var ap = ap || {};
 ap.modules = ap.modules || {};
 
+var map;
+var geoJsonCollection = [];
+var svg;
+var g;
+
 ap.modules.map = (function () {
-    var map = L.map('map');
+    map = L.map('map');
 
     var industryLayer = new L.LayerGroup();
     var electricityLayer = new L.LayerGroup();
     var transportationLayer = new L.LayerGroup();
+    var topLeft = [966,-547];
+    var bottomRight = [1007, -178];
 
     industryLayer.StyledLayerControl = {
         removable: false
@@ -109,6 +116,9 @@ ap.modules.map = (function () {
             subdomains: ['a','b','c','d'],
             token: 'pk.eyJ1IjoiaXRhaGFnYWkiLCJhIjoiZmxIdGF5MCJ9.L_VBtl5noeLVHw_bIr4Hag'
     }).addTo(map);
+
+    map.setView(new L.LatLng(31.782, 35.21933), 8);
+
     function onLocationFound(e) {
         var radius = e.accuracy / 2;
         L.marker(e.latlng, {iconUrl: '/src/pin-black256.png'}).addTo(map)
@@ -125,8 +135,12 @@ ap.modules.map = (function () {
     map.on('locationerror', onLocationError);
     map.locate({setView: true, maxZoom: 10});
 
+    //prepare D3 / svg support
+    // svg = d3.select(map.getPanes().overlayPane).append("svg");
+    // g = svg.append("g").attr("class", "leaflet-zoom-hide");
 
-    Papa.parse("data/pollutants.csv", {
+    //Papa.parse("data/pollutants.csv", {
+    Papa.parse("data/Pollutant-emissions-inventory-with-names01012015.csv", {
         header: false,
         download: true,
         complete: function (results) {
@@ -134,26 +148,39 @@ ap.modules.map = (function () {
             var len = results.data.length;
             for (var i = 0; i < len; i++) {
                 line = results.data[i];
-                if (line[10] === undefined || line[11] === undefined) {
-                    console.log("COORDS: are undefined!");
+                if (line[1] === undefined) {
+                    console.log("city name is undefined!");
                 }
                 else {
                     var lat = parseFloat(line[10]);
                     var lng = parseFloat(line[11]);
-                    if (isNaN(lat) || isNaN(lng)) {
-                        console.log("Address: " + +" could not be parsed!");
-                    }
-                    else {
-                        industryMarker = createMarkerFromPollutantType(results.data[i], "industry", lng, lat, iconDictionary);
-                        transportationMarker = createMarkerFromPollutantType(results.data[i], "transportation", lng, lat, iconDictionary);
-                        electricityMarker = createMarkerFromPollutantType(results.data[i], "electricity", lng, lat, iconDictionary);
+                    //if (isNaN(lat) || isNaN(lng)) {
+                    //    console.log("Address: " + +" could not be parsed!");
+                    //}
+                    //else {
+                    industryMarker = createMarkerFromPollutantType(results.data[i], "industry", lng, lat, iconDictionary);
+                    transportationMarker = createMarkerFromPollutantType(results.data[i], "transportation", lng, lat, iconDictionary);
+                    electricityMarker = createMarkerFromPollutantType(results.data[i], "electricity", lng, lat, iconDictionary);
 
-                        industryLayer.addLayer(industryMarker);
+                    industryLayer.addLayer(industryMarker);
 
-                        electricityLayer.addLayer(electricityMarker);
+                    electricityLayer.addLayer(electricityMarker);
 
-                        transportationLayer.addLayer(transportationMarker);
-                    }
+                    transportationLayer.addLayer(transportationMarker);
+
+                    /* TODO REMOVE THIS!
+                    var svg = d3.select(map.getPanes().overlayPane).append("svg"),
+                    g = svg.append("g").attr("class", "industry");
+
+                    //var svg = d3.selectAll(".industry")
+                    var svg = d3.select("body").selectAll(".industry");
+                    var t = textures.lines().thicker();
+                    svg.call(t);
+                    svg.append("circle").style("fill", t.url());
+                    */
+
+
+                    //}
                 }
             }
 
@@ -162,15 +189,24 @@ ap.modules.map = (function () {
 
             control._container.remove();
 
+
+            map.on("viewreset", reset);
+
+            // this puts stuff on the map! 
+            reset();
+
+
             $('#pollutantList').append(control.onAdd(map));
 
         }
     });
 
     function createMarkerFromPollutantType(arr, type, lng, lat, iconDictionary) {
-        var marker = L.marker([lng, lat]);
+        
+        //var marker = L.marker([lng, lat]);
+        var marker = getPolygonByCityName(arr[1],type) || new L.marker();
         var str = createPopUpStrByType(arr, type);
-        setIconByTypeRange(marker, type, arr, iconDictionary);
+        //setIconByTypeRange(marker, type, arr, iconDictionary);
         marker.bindPopup(str);
 
         return marker;
@@ -199,8 +235,8 @@ ap.modules.map = (function () {
             title = "ייצור חשמל";
         }
 
-        str = "<div class=\"marker\">"
-        str += "<b>עיר:" + arr[0] + "</b><br/>";
+        str = "<div class=\"marker "+type+"\">"
+        str += "<b>" + arr[0] + "</b><br/>";
         str += "קוד תחנה: " + arr[1] + "<br/>";
         str += "סוג המזהם: " + title + "<br/>";
         str += "טונות זיהום/שנה: " + arr[pollutantIndex] + " טון<br/>";
@@ -208,6 +244,124 @@ ap.modules.map = (function () {
 
         str += "</div>";
         return str;
+    }
+
+    function getPolygonByCityName(name, type){
+        if (name===undefined || name==='') {
+            console.log("Could not get city name!");
+            return none;
+        }
+
+        var urlString = 'http://cdn.rawgit.com/idoivri/israel-municipalities-polygons/master/'+name+'/'+name+'.geojson'
+        //var geojsonLayer = L.geoJson.ajax(urlString,{dataType:"vnd.geo+json"}); //this doesn't work
+        
+        var geojsonLayer = "";
+
+
+        var layerStyle = getStyleByType(type);
+
+        var geojsonLayer = new L.GeoJSON.AJAX(urlString, {style:layerStyle}); //this works!
+
+        function getStyleByType(type) {
+            if (type==="industry") {
+                return industryLayerStyle;
+            }
+            else if (type==="electricity") {
+                return electricityLayerStyle;
+            }
+            else //transportation
+            {
+                return transportationLayerStyle;
+            } 
+        }
+
+        // d3 - get the geojson layers
+
+        
+        // d3.json(urlString, function(error, collection) {
+        //     //console.log("GOT GEOJSON!");
+        //     //debugger;
+        //     //console.log(error);
+
+
+        //     if (!collection) {
+        //         console.log("got a null/empty collection");
+        //         return;
+        //     }
+
+        //     var styleObject = {
+        //         "fillcolor": "#ff7800",
+        //         "weight": 5,
+        //         "opacity": 0.65
+        //     };
+
+
+        //     var asyncD3Layer = new L.GeoJSON.d3(collection, 
+        //     {
+        //     styler: styleObject,
+        //     onEachFeature: function (feature, layer) {
+        //         if (feature.properties) {
+        //             var popupString = '<div class="popup">';
+        //             popupString += '<p>abcd</p>'
+        //             popupString += '</div>';
+        //             layer.bindPopup(popupString);
+        //             }
+        //         }
+        //     });
+    
+
+
+        //     //console.log(asyncD3Layer);
+        //     console.log(asyncD3Layer.options.layerId);
+
+            
+        //     // var svg = d3.select("#"+asyncD3Layer.options.layerId)
+        //     //       .append("svg");
+
+        //     //     var t = textures.lines()
+        //     //       .thicker();
+
+        //     //     svg.call(t);
+
+        //     //     svg.append("circle")
+        //     //       .style("fill", t.url());
+
+            
+        //     asyncD3Layer.setStyle(styleObject);
+
+        //     map.addLayer(asyncD3Layer);
+           
+        //     geoJsonCollection.push(collection);
+
+        //     /*
+        //     var transform = d3.geo.transform({point: projectPoint}),
+        //     path = d3.geo.path().projection(transform);
+
+        //     var feature = g.selectAll("path")
+        //           .data(collection.features)
+        //         .enter().append("path");
+
+        //     //separator
+
+        //     var bounds = path.bounds(collection);
+        //     if (!topLeft || bounds[0] > topLeft) {
+        //         topLeft = bounds[0];
+        //         console.log("new topLeft = " + bounds[0]);
+        //     }
+            
+        //     if (!bottomRight || bounds[1] < bottomRight) {
+        //         bottomRight = bounds[1];
+        //         console.log(bounds[1]);
+        //         console.log("new bottomRight = " + bounds[1]);
+        //     }
+        //     */
+
+        //     //feature.attr("d", path);
+            
+        //     geoJsonLayer = collection;
+        // });
+
+        return geojsonLayer;
     }
 
     function setIconByTypeRange(marker, type, arr, iconDictionary) {
@@ -244,66 +398,91 @@ ap.modules.map = (function () {
         }
 
     }
-/*
 
-    $("#opener").click(function () {
-        console.log("AHA!!")
-        $("#hide-me ~ label").css({
-            'position': 'absolute',
-            'display': 'flex',
-            'top': '0',
-            'left': '0',
-            'width': '100%',
-            'height': '100%',
-            'z-index': '1',
-            'background': 'rgba(0,0,0,.5)',
-            'background': 'radial-gradient(ellipse at center, rgba(0,0,0,.2) 0%, rgba(0,0,0,.9) 150%)'
-        });
+    // Reposition the SVG to cover the features.
+    function reset() {
 
 
+        var svg = d3.selectAll(".electricityLayer").append("svg");
+        //var svg = d3.select("[color=red]")
+        //  .append("svg");
 
-        var $label =  $("#hide-me ~ label");
+        var t = textures.lines()
+            .orientation("vertical", "horizontal")
+            .size(4)
+            .strokeWidth(1)
+            .shapeRendering("crispEdges")
+            .stroke("darkorange");
 
-        $label.find(".message").css({
-            'position': 'relative',
-            'margin': 'auto',
-            'width': '60%',
-            'height': '60%',
-            'background': '#F7F9F3',
-            'padding': '2.5em',
-            'font-size': '1.25em',
-            'box-shadow': '0 5px 30px 5px #222'
-        });
+        svg.call(t);
 
+        svg.append("g")
+          .style("fill", t.url());
 
-        $label.find(".close").css({
-            'display': 'block',
-            'position': 'absolute',
-            'top': '5px',
-            'right': '5px',
-            'color': '#eee',
-            'background': '#C00',
-            'padding': '3px',
-            'border-radius': '2em',
-            'width': '1.2em',
-            'height': '1.2em',
-            'text-align': 'center',
-            'cursor': 'pointer'
-        });
+        // if (!bottomRight || !topLeft) {
+        //     return;
+        // } 
+        // svg .attr("width", bottomRight[0] - topLeft[0])
+        //     .attr("height", bottomRight[1] - topLeft[1])
+        //     .style("left", topLeft[0] + "px")
+        //     .style("top", topLeft[1] + "px");
 
-    });
+        // g   .attr("transform", "translate(" + -topLeft[0] + "," + -topLeft[1] + ")");
 
-    $(".close").click(function () {
-        console.log("ANA");
-        $("#hide-me ~ label").css({
-            'display': 'none'
-        });
-    });
-*/
+        
+    }
+ 
+    //add more D3 stuff
+    function projectPoint(x, y) {
+      var point = map.latLngToLayerPoint(new L.LatLng(y, x));
+      this.stream.point(point.x, point.y);
+    }
+
 
     return {}
 
 }());
+
+
+var industryLayerStyle = {
+                    color: "#D73027",
+                    fillColor: "#fc8d59",
+                    weight: 3,
+                    opacity: 0.5,
+                    className: "industryLayer"
+};
+
+var transportationLayerStyle = {
+                    color: "#fee08b",
+                    fillColor: "#FFFF00",
+                    weight: 3,
+                    opacity: 0.5,
+                    className: "transportationLayer"
+};
+
+var electricityLayerStyle = {
+                    color: "#91cf60",
+                    //fillColor: "#d9ef8b",
+                    fillColor: "red",
+                    weight: 3,
+                    opacity: 0.5,
+                    dashArray: "5, 10",
+                    className: "electricityLayer"
+};
+
+
+
+
+/*
+
+    var myStringArray = ["Hello","World"];
+    var arrayLength = myStringArray.length;
+    for (var i = 0; i < arrayLength; i++) {
+        alert(myStringArray[i]);
+        //Do something
+    }
+
+*/
 
 
 
