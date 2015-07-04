@@ -121,9 +121,9 @@ ap.modules.map = (function () {
 
     function onLocationFound(e) {
         var radius = e.accuracy / 2;
-        L.marker(e.latlng, {iconUrl: '/src/pin-black256.png'}).addTo(map)
-            .bindPopup("אתם נמצאים " + radius + " מטרים מכאן").openPopup();
-        L.circle(e.latlng, radius).addTo(map);
+        //L.marker(e.latlng, {iconUrl: '/src/pin-black256.png'}).addTo(map)
+        //    .bindPopup("אתם נמצאים " + radius + " מטרים מכאן").openPopup();
+        //L.circle(e.latlng, radius).addTo(map);
     }
 
     function onLocationError(e) {
@@ -204,7 +204,7 @@ ap.modules.map = (function () {
     function createMarkerFromPollutantType(arr, type, lng, lat, iconDictionary) {
         
         //var marker = L.marker([lng, lat]);
-        var marker = getPolygonByCityName(arr[1],type) || new L.marker();
+        var marker = getPolygonByCityName(arr[1],type, arr) || new L.marker();
         var str = createPopUpStrByType(arr, type);
         //setIconByTypeRange(marker, type, arr, iconDictionary);
         marker.bindPopup(str);
@@ -246,11 +246,14 @@ ap.modules.map = (function () {
         return str;
     }
 
-    function getPolygonByCityName(name, type){
+    function getPolygonByCityName(name, type,arr){
         if (name===undefined || name==='') {
             console.log("Could not get city name!");
             return none;
         }
+
+        console.log("GOT array:");
+        console.log(arr);
 
         var urlString = 'http://cdn.rawgit.com/idoivri/israel-municipalities-polygons/master/'+name+'/'+name+'.geojson'
         //var geojsonLayer = L.geoJson.ajax(urlString,{dataType:"vnd.geo+json"}); //this doesn't work
@@ -258,20 +261,45 @@ ap.modules.map = (function () {
         var geojsonLayer = "";
 
 
-        var layerStyle = getStyleByType(type);
+        var layerStyle = getStyleByType(type,arr);
+        //console.log("after stting style object");
+        //console.log(layerStyle);
 
         var geojsonLayer = new L.GeoJSON.AJAX(urlString, {style:layerStyle}); //this works!
 
-        function getStyleByType(type) {
+        function getStyleByType(type,arr) {
             if (type==="industry") {
-                return industryLayerStyle;
+
+                return industryStyle(arr);
+
+                /*
+                var styleObject = industryLayerStyle;
+                styleObject["fillColor"]=getIndustryColor(arr[2]);
+                console.log("industry style object with the following value:");
+                console.log("value: "+arr[2]);
+                console.log(getIndustryColor(arr[2]));
+                //console.log("industry style object:");
+                //console.log(styleObject);
+                return styleObject;
+                */
             }
             else if (type==="electricity") {
-                return electricityLayerStyle;
+
+                return electricityStyle(arr);
+
+                //var styleObject = electricityLayerStyle;
+                //styleObject["fillColor"]=getElectricityColor(arr[3]);
+                //console.log("electricity style object:");
+                //console.log(styleObject);
+                //return styleObject;
             }
             else //transportation
             {
-                return transportationLayerStyle;
+                return transportationStyle(arr);
+                //var styleObject = transportationLayerStyle;
+                //styleObject["fillColor"]=getTransportationColor(arr[4]);
+                //console.log(styleObject);
+                return styleObject;
             } 
         }
 
@@ -459,33 +487,78 @@ ap.modules.map = (function () {
 }());
 
 
-var industryLayerStyle = {
-                    color: "#D73027",
-                    fillColor: "#fc8d59",
-                    weight: 3,
-                    fillOpacity: 0.5,
-                    className: "industryLayer"
-};
-
-var transportationLayerStyle = {
-                    color: "#fee08b",
-                    fillColor: "#FFFF00",
-                    weight: 3,
-                    fillOpacity: 0.5,
-                    className: "transportationLayer"
-};
-
-var electricityLayerStyle = {
-                    color: "#91cf60",
-                    //fillColor: "#d9ef8b",
-                    fillColor: "blue",
-                    weight: 3,
-                    fillOpacity: 0.5,
-                    dashArray: "5, 10",
-                    className: "electricityLayer"
-};
+function industryStyle(arr) {
 
 
+    var num = +arr[2].replace(/[^\d.ex-]+/gi, '')
+    console.log("value:v"+ num +"about to get industry color: "+getIndustryColor(arr[2]));
+
+    return {
+        fillColor: getIndustryColor(num),
+        color: getIndustryColor(num),
+        weight: 1.7,
+        fillOpacity: 0.6
+    };
+}
+
+function electricityStyle(arr) {
+
+
+    var num = +arr[3].replace(/[^\d.ex-]+/gi, '')
+    console.log("value:v"+ num +"about to get electricity color: "+getIndustryColor(arr[3]));
+
+    return {
+        fillColor: getElectricityColor(num),
+        color: getElectricityColor(num),
+        weight: 1.7,
+        fillOpacity: 0.6
+    };
+}
+
+function transportationStyle(arr) {
+
+
+    var num = +arr[4].replace(/[^\d.ex-]+/gi, '')
+    console.log("value:v"+ num +"about to get electricity color: "+getIndustryColor(arr[4]));
+
+    return {
+        fillColor: getTransportationColor(num),
+        color: getTransportationColor(num),
+        weight: 1.7,
+        fillOpacity: 0.6
+    };
+}
+
+
+
+function getIndustryColor(d) {
+    return d > 50 ? "#8856a7" :
+           d > 25  ? "#9ebcda" :
+                      "#e0ecf4";
+}
+
+function getElectricityColor(d) {
+    return d > 750 ? '#f03b20' :
+           d > 500  ? '#feb24c' :
+                      "#ffeda0";
+}
+
+function getTransportationColor(d) {
+    return d > 750 ? '#2ca25f' :
+           d > 500  ? '#99d8c9' :
+                      '#e5f5f9';
+}
+
+
+/*
+
+industry: 0-50 (small) - #e0ecf4; 50-100 (medium) - #9ebcda; 100+ (large) - #8856a7
+electricity: 0-50 (small) - #ffeda0; 50-100 (medium) - #feb24c; 100+ (large) - #f03b20
+transportation: 0-50 (small) - #e5f5f9; 50-100 (medium) - #99d8c9; 100+ (large) - #2ca25f
+
+
+
+*/
 
 
 /*
