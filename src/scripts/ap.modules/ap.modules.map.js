@@ -106,9 +106,9 @@ ap.modules.map = (function () {
                     //    console.log("Address: " + +" could not be parsed!");
                     //}
                     //else {
-                    industryMarker = createMarkerFromPollutantType(results.data[i], "industry", lng, lat, iconDictionary);
-                    transportationMarker = createMarkerFromPollutantType(results.data[i], "transportation", lng, lat, iconDictionary);
-                    electricityMarker = createMarkerFromPollutantType(results.data[i], "electricity", lng, lat, iconDictionary);
+                    industryMarker = createMarkerFromPollutantType(results.data[i], "industry", lng, lat);
+                    transportationMarker = createMarkerFromPollutantType(results.data[i], "transportation", lng, lat);
+                    electricityMarker = createMarkerFromPollutantType(results.data[i], "electricity", lng, lat);
 
                     industryLayer.addLayer(industryMarker);
 
@@ -143,7 +143,7 @@ ap.modules.map = (function () {
         }
     });
 
-    function createMarkerFromPollutantType(arr, type, lng, lat, iconDictionary) {
+    function createMarkerFromPollutantType(arr, type, lng, lat) {
         
         //var marker = L.marker([lng, lat]);
         var marker = getPolygonByCityName(arr[1],type, arr) || new L.marker();
@@ -259,7 +259,7 @@ function industryStyle(arr) {
         color: getIndustryColor(num),
         weight: 1.7,
         fillOpacity: 0.6,
-        className: industryPolygon
+        className: "industryPolygon"
     };
 }
 
@@ -274,7 +274,7 @@ function electricityStyle(arr) {
         color: getElectricityColor(num),
         weight: 1.7,
         fillOpacity: 0.6,
-        className: electricityPolygon
+        className: "electricityPolygon"
     };
 }
 
@@ -288,7 +288,7 @@ function transportationStyle(arr) {
         color: getTransportationColor(num),
         weight: 1.7,
         fillOpacity: 0.6,
-        className: transportationPolygon
+        className: "transportationPolygon"
     };
 }
 
