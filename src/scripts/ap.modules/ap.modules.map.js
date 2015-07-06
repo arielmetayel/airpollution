@@ -259,7 +259,7 @@ function industryStyle(arr) {
         color: getIndustryColor(num),
         weight: 1.7,
         fillOpacity: 0.6,
-        className: "industryPolygon"
+        className: "industry-polygon"
     };
 }
 
@@ -274,7 +274,7 @@ function electricityStyle(arr) {
         color: getElectricityColor(num),
         weight: 1.7,
         fillOpacity: 0.6,
-        className: "electricityPolygon"
+        className: "electricity-polygon"
     };
 }
 
@@ -288,7 +288,7 @@ function transportationStyle(arr) {
         color: getTransportationColor(num),
         weight: 1.7,
         fillOpacity: 0.6,
-        className: "transportationPolygon"
+        className: "transportation-polygon"
     };
 }
 
