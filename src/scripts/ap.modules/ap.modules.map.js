@@ -32,59 +32,7 @@ ap.modules.map = (function () {
     //create Icons
 
 
-    var iconIndustry32 = L.icon({
-        iconUrl: 'images/industry32.png',
-        iconSize: [32, 32], popupAnchor: [0, -5]
-    });
-    var iconIndustry64 = L.icon({
-        iconUrl: 'images/industry64.png',
-        iconSize: [64, 64], popupAnchor: [0, -5]
-    });
-    var iconIndustry128 = L.icon({
-        iconUrl: 'images/industry128.png',
-        iconSize: [128, 128], popupAnchor: [0, -5]
-    });
-
-    var iconElectricity32 = L.icon({
-        iconUrl: 'images/electricity32.png',
-        iconSize: [32, 32], popupAnchor: [0, -5]
-    });
-    var iconElectricity64 = L.icon({
-        iconUrl: 'images/electricity64.png',
-        iconSize: [64, 64], popupAnchor: [0, -5]
-    });
-    var iconElectricity128 = L.icon({
-        iconUrl: 'images/electricity128.png',
-        iconSize: [128, 128], popupAnchor: [0, -5]
-    });
-
-    var iconTransportation32 = L.icon({
-        iconUrl: 'images/transport32.png',
-        iconSize: [32, 32], popupAnchor: [0, -5]
-    });
-    var iconTransportation64 = L.icon({
-        iconUrl: 'images/transport64.png',
-        iconSize: [64, 64], popupAnchor: [0, -5]
-    });
-    var iconTransportation128 = L.icon({
-        iconUrl: 'images/transport128.png',
-        iconSize: [128, 128], popupAnchor: [0, -5]
-    });
-
-    var iconDictionary = {}; //TODO remove redundant instatiation + assignments
-
-    iconDictionary["iconIndustry32"] = iconIndustry32;
-    iconDictionary["iconIndustry64"] = iconIndustry64;
-    iconDictionary["iconIndustry128"] = iconIndustry128;
-
-    iconDictionary["iconElectricity32"] = iconElectricity32;
-    iconDictionary["iconElectricity64"] = iconElectricity64;
-    iconDictionary["iconElectricity128"] = iconElectricity128;
-
-    iconDictionary["iconTransportation32"] = iconTransportation32;
-    iconDictionary["iconTransportation64"] = iconTransportation64;
-    iconDictionary["iconTransportation128"] = iconTransportation128;
-
+   
     var overlays = [
         {
             groupName: "",
@@ -246,9 +194,6 @@ ap.modules.map = (function () {
             return none;
         }
 
-        console.log("GOT array:");
-        console.log(arr);
-
         var urlString = 'http://cdn.rawgit.com/idoivri/israel-municipalities-polygons/master/'+name+'/'+name+'.geojson'
         //var geojsonLayer = L.geoJson.ajax(urlString,{dataType:"vnd.geo+json"}); //this doesn't work
         
@@ -284,40 +229,6 @@ ap.modules.map = (function () {
         return geojsonLayer;
     }
 
-    function setIconByTypeRange(marker, type, arr, iconDictionary) {
-        var checkIndex = 0
-        var dictionary = {};
-        if (type == "industry") {
-            checkIndex = 2;
-            dictionary["32"] = iconDictionary["iconIndustry32"];
-            dictionary["64"] = iconDictionary["iconIndustry64"];
-            dictionary["128"] = iconDictionary["iconIndustry128"];
-        }
-        else if (type == "transportation") {
-            checkIndex = 4;
-            dictionary["32"] = iconDictionary["iconTransportation32"];
-            dictionary["64"] = iconDictionary["iconTransportation64"];
-            dictionary["128"] = iconDictionary["iconTransportation128"];
-        }
-        else { //eletricity
-            checkIndex = 3
-            dictionary["32"] = iconDictionary["iconElectricity32"];
-            dictionary["64"] = iconDictionary["iconElectricity64"];
-            dictionary["128"] = iconDictionary["iconElectricity128"];
-        }
-
-        //now, match the right icon according to the pollutant level
-        if (arr[checkIndex] < 100) {
-            marker.setIcon(dictionary["32"]);
-        }
-        else if (arr[checkIndex] < 200) {
-            marker.setIcon(dictionary["64"]);
-        }
-        else {
-            marker.setIcon(dictionary["128"]);
-        }
-
-    }
 
     // Reposition the SVG to cover the features.
     function reset() {
