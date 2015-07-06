@@ -258,7 +258,8 @@ function industryStyle(arr) {
         fillColor: getIndustryColor(num),
         color: getIndustryColor(num),
         weight: 1.7,
-        fillOpacity: 0.6
+        fillOpacity: 0.6,
+        className: industryPolygon
     };
 }
 
@@ -272,7 +273,8 @@ function electricityStyle(arr) {
         fillColor: getElectricityColor(num),
         color: getElectricityColor(num),
         weight: 1.7,
-        fillOpacity: 0.6
+        fillOpacity: 0.6,
+        className: electricityPolygon
     };
 }
 
@@ -285,10 +287,26 @@ function transportationStyle(arr) {
         fillColor: getTransportationColor(num),
         color: getTransportationColor(num),
         weight: 1.7,
-        fillOpacity: 0.6
+        fillOpacity: 0.6,
+        className: transportationPolygon
     };
 }
 
+
+function box(id, t) {
+  var figure = d3.select("[data=" + id + "]");
+  var box = figure.select(".box");
+  var svg = box.append("svg")
+    .attr('width', 200)
+    .attr('height', 100);
+  svg.call(t);
+  svg.append("path")
+    .attr("d", "M 0 0 L 0 200 L 200 200 L 200 0 Z")
+    .style({
+      "fill": t.url()
+    });
+  figure.transition().duration(1000).style("opacity", 1);
+}
 
 
 function getIndustryColor(d) {
