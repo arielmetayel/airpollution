@@ -190,12 +190,6 @@ ap.modules.map = (function () {
             control._container.remove();
 
 
-            map.on("viewreset", reset);
-
-            // this puts stuff on the map! 
-            reset();
-
-
             $('#pollutantList').append(control.onAdd(map));
 
         }
@@ -272,122 +266,19 @@ ap.modules.map = (function () {
 
                 return industryStyle(arr);
 
-                /*
-                var styleObject = industryLayerStyle;
-                styleObject["fillColor"]=getIndustryColor(arr[2]);
-                console.log("industry style object with the following value:");
-                console.log("value: "+arr[2]);
-                console.log(getIndustryColor(arr[2]));
-                //console.log("industry style object:");
-                //console.log(styleObject);
-                return styleObject;
-                */
+
             }
             else if (type==="electricity") {
 
                 return electricityStyle(arr);
 
-                //var styleObject = electricityLayerStyle;
-                //styleObject["fillColor"]=getElectricityColor(arr[3]);
-                //console.log("electricity style object:");
-                //console.log(styleObject);
-                //return styleObject;
+
             }
             else //transportation
             {
                 return transportationStyle(arr);
-                //var styleObject = transportationLayerStyle;
-                //styleObject["fillColor"]=getTransportationColor(arr[4]);
-                //console.log(styleObject);
-                return styleObject;
             } 
         }
-
-        // d3 - get the geojson layers
-
-        
-        // d3.json(urlString, function(error, collection) {
-        //     //console.log("GOT GEOJSON!");
-        //     //debugger;
-        //     //console.log(error);
-
-
-        //     if (!collection) {
-        //         console.log("got a null/empty collection");
-        //         return;
-        //     }
-
-        //     var styleObject = {
-        //         "fillcolor": "#ff7800",
-        //         "weight": 5,
-        //         "opacity": 0.65
-        //     };
-
-
-        //     var asyncD3Layer = new L.GeoJSON.d3(collection, 
-        //     {
-        //     styler: styleObject,
-        //     onEachFeature: function (feature, layer) {
-        //         if (feature.properties) {
-        //             var popupString = '<div class="popup">';
-        //             popupString += '<p>abcd</p>'
-        //             popupString += '</div>';
-        //             layer.bindPopup(popupString);
-        //             }
-        //         }
-        //     });
-    
-
-
-        //     //console.log(asyncD3Layer);
-        //     console.log(asyncD3Layer.options.layerId);
-
-            
-        //     // var svg = d3.select("#"+asyncD3Layer.options.layerId)
-        //     //       .append("svg");
-
-        //     //     var t = textures.lines()
-        //     //       .thicker();
-
-        //     //     svg.call(t);
-
-        //     //     svg.append("circle")
-        //     //       .style("fill", t.url());
-
-            
-        //     asyncD3Layer.setStyle(styleObject);
-
-        //     map.addLayer(asyncD3Layer);
-           
-        //     geoJsonCollection.push(collection);
-
-        //     /*
-        //     var transform = d3.geo.transform({point: projectPoint}),
-        //     path = d3.geo.path().projection(transform);
-
-        //     var feature = g.selectAll("path")
-        //           .data(collection.features)
-        //         .enter().append("path");
-
-        //     //separator
-
-        //     var bounds = path.bounds(collection);
-        //     if (!topLeft || bounds[0] > topLeft) {
-        //         topLeft = bounds[0];
-        //         console.log("new topLeft = " + bounds[0]);
-        //     }
-            
-        //     if (!bottomRight || bounds[1] < bottomRight) {
-        //         bottomRight = bounds[1];
-        //         console.log(bounds[1]);
-        //         console.log("new bottomRight = " + bounds[1]);
-        //     }
-        //     */
-
-        //     //feature.attr("d", path);
-            
-        //     geoJsonLayer = collection;
-        // });
 
         geoJsonCollection = geojsonLayer;
         return geojsonLayer;
@@ -431,46 +322,6 @@ ap.modules.map = (function () {
     // Reposition the SVG to cover the features.
     function reset() {
 
-
-        var svg = d3.selectAll(".electricityLayer").append("svg");
-        //var svg = d3.select("[color=red]")
-        //  .append("svg");
-
-        var t = textures.lines().thicker();
-
-        svg.call(t);
-
-        svg.append("g")
-          .style("fill", t.url());
-
-        svg.append
-
-        /*
-        console.log(geoJsonCollection);
-
-        var layers = geoJsonCollection._layers;
-
-        var svgPoints = svg.selectAll("g").append("svg")
-          .data(layers)
-          .enter()
-          .append("g")
-
-        var t = textures.lines().thicker();
-
-        svgPoints.call(t);
-        svgPoints.append("circle").style("fill", t.url());
-
-        */
-
-        // if (!bottomRight || !topLeft) {
-        //     return;
-        // } 
-        // svg .attr("width", bottomRight[0] - topLeft[0])
-        //     .attr("height", bottomRight[1] - topLeft[1])
-        //     .style("left", topLeft[0] + "px")
-        //     .style("top", topLeft[1] + "px");
-
-        // g   .attr("transform", "translate(" + -topLeft[0] + "," + -topLeft[1] + ")");
 
         
     }
@@ -517,7 +368,6 @@ function electricityStyle(arr) {
 
 function transportationStyle(arr) {
 
-
     var num = +arr[4].replace(/[^\d.ex-]+/gi, '')
     console.log("value:v"+ num +"about to get electricity color: "+getIndustryColor(arr[4]));
 
@@ -548,29 +398,5 @@ function getTransportationColor(d) {
            d > 500  ? '#99d8c9' :
                       '#e5f5f9';
 }
-
-
-/*
-
-industry: 0-50 (small) - #e0ecf4; 50-100 (medium) - #9ebcda; 100+ (large) - #8856a7
-electricity: 0-50 (small) - #ffeda0; 50-100 (medium) - #feb24c; 100+ (large) - #f03b20
-transportation: 0-50 (small) - #e5f5f9; 50-100 (medium) - #99d8c9; 100+ (large) - #2ca25f
-
-
-
-*/
-
-
-/*
-
-    var myStringArray = ["Hello","World"];
-    var arrayLength = myStringArray.length;
-    for (var i = 0; i < arrayLength; i++) {
-        alert(myStringArray[i]);
-        //Do something
-    }
-
-*/
-
 
 
