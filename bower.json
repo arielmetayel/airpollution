@@ -32,7 +32,9 @@
     "Leaflet.StyledLayerControl": "git@github.com:davicustodio/Leaflet.StyledLayerControl.git",
     "papaparse": "4.1.0",
     "accounting": "~0.3.2",
-    "css-reset": "~2.5.1"
+    "css-reset": "~2.5.1",
+    "textures": "*",
+    "leaflet-ajax": "~1.1.0"
   },
   "resolutions": {
     "papaparse": "4.1.0"

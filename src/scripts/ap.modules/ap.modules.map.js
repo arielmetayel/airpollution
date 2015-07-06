@@ -200,7 +200,6 @@ ap.modules.map = (function () {
         //var marker = L.marker([lng, lat]);
         var marker = getPolygonByCityName(arr[1],type, arr) || new L.marker();
         var str = createPopUpStrByType(arr, type);
-        //setIconByTypeRange(marker, type, arr, iconDictionary);
         marker.bindPopup(str);
 
         return marker;
