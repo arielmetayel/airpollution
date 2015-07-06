@@ -32,7 +32,7 @@ ap.modules.map = (function () {
     //create Icons
 
 
-   
+
     var overlays = [
         {
             groupName: "",
@@ -139,12 +139,14 @@ ap.modules.map = (function () {
 
 
             $('#pollutantList').append(control.onAdd(map));
+            var stripes = new L.StripePattern();
+            stripes.addTo(map);
 
         }
     });
 
     function createMarkerFromPollutantType(arr, type, lng, lat) {
-        
+
         //var marker = L.marker([lng, lat]);
         var marker = getPolygonByCityName(arr[1],type, arr) || new L.marker();
         var str = createPopUpStrByType(arr, type);
@@ -195,7 +197,7 @@ ap.modules.map = (function () {
 
         var urlString = 'http://cdn.rawgit.com/idoivri/israel-municipalities-polygons/master/'+name+'/'+name+'.geojson'
         //var geojsonLayer = L.geoJson.ajax(urlString,{dataType:"vnd.geo+json"}); //this doesn't work
-        
+
         var geojsonLayer = "";
 
 
@@ -221,7 +223,7 @@ ap.modules.map = (function () {
             else //transportation
             {
                 return transportationStyle(arr);
-            } 
+            }
         }
 
         geoJsonCollection = geojsonLayer;
@@ -233,9 +235,9 @@ ap.modules.map = (function () {
     function reset() {
 
 
-        
+
     }
- 
+
     //add more D3 stuff
     function projectPoint(x, y) {
       var point = map.latLngToLayerPoint(new L.LatLng(y, x));
@@ -249,17 +251,22 @@ ap.modules.map = (function () {
 
 
 function industryStyle(arr) {
+    var num = +arr[2].replace(/[^\d.ex-]+/gi, '');
+    var stripes = new L.StripePattern({
+        //weight: 7,
+        //color: getIndustryColor(num)
+    });
+    stripes.addTo(map);
 
-
-    var num = +arr[2].replace(/[^\d.ex-]+/gi, '')
     console.log("value:v"+ num +"about to get industry color: "+getIndustryColor(arr[2]));
 
     return {
-        fillColor: getIndustryColor(num),
+        //fillColor: getIndustryColor(num),
         color: getIndustryColor(num),
         weight: 1.7,
-        fillOpacity: 0.6,
-        className: "industry-polygon"
+        //fillOpacity: 0.6,
+        className: "industry-polygon",
+        fillPattern: stripes
     };
 }
 
